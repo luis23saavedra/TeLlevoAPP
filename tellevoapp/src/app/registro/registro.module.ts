@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { RegistroPageRoutingModule } from './registro-routing.module';
 
 import { RegistroPage } from './registro.page';
-
+//NAGULAR MATERIAL.
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 //IMPORTADO PARA QUE APAREZCA EL INPUT DEL EMAIL.
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -21,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroPageRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDividerModule
   ],
   declarations: [RegistroPage]
 })

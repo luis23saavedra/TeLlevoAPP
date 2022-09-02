@@ -1,34 +1,51 @@
-.example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+// .example-container .mat-form-field + .mat-form-field {
+//     margin-left: 8px;
+//   }
   // CAMBIO DE FONDO DE COLOR
-  .fondo{
-    --ion-background-color: white;
-  }
-  .letra{
-    --ion-text-color:black;
-  }
+.fondo{
+  --ion-background-color: white;
+}
+.letra{
+  --ion-text-color:black;
+}
   
-  ::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: black !important;
-   }
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: black !important;
+}
   
-   ::ng-deep.mat-form-field-underline {
-    /*change color of underline*/
-    background-color: black !important;
-  } 
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: black !important;
+} 
   
-  ::ng-deep.mat-form-field-ripple {
-   /*change color of underline when focused*/
-   background-color: black !important;
-  }
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: black !important;
+}
   
-  ::ng-deep.input {
-    /*change color of underline when focused*/
-    color: black !important;
-  }
-  //CAMBIO DE COLOR DE INPUT
-  ::ng-deep.mat-form-field-appearance-fill{
-    color: black;
-  }
+::ng-deep.input {
+  /*change color of underline when focused*/
+  color: black !important;
+}
+//CAMBIO DE COLOR DE INPUT
+::ng-deep.mat-form-field-appearance-fill{
+  color: black;
+}
+//MARGEN GENERAL.
+.margin-superior{
+  margin-top: 50px;
+  margin-left: 30px;
+}
+.margin-contenido{
+  margin-left: 30px;
+}
+
+//BUTTON.
+.margenb{
+  margin-top: 20px;
+  margin-left: 33px;
+  width: 205px;
+  color: white;
+  background-color: black;
+}

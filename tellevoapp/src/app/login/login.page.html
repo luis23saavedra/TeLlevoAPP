@@ -16,7 +16,7 @@
         <!-- <mat-hint align="start">{{input.value?.length || 0}}/8</mat-hint> -->
       </mat-form-field>
     </div>
-    <mat-divider></mat-divider>
+    
     <div class="example-container margen ion-margin-top" >
       <mat-form-field hintLabel="Debe contener Máx 4 números" appearance="fill">
         <mat-label>Contraseña</mat-label>
@@ -28,7 +28,7 @@
     <!-- <div class="example-label">Stroked</div> -->
     <div class="example-button-row">
             
-      <button mat-flat-button [disabled]="formulario.invalid" class="margenb">Ingresar</button>
+      <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/registro']">Ingresar</button>
     </div> 
     <!-- MIENTRAS EL FORMULARIO NO SEA VÁLIDO EL BOTÓN NO SE HABILITARÁ. -->
     <!-- <ion-button expand="" type="submit" [disabled]="formulario.invalid" [routerLink]="['/home']" class="margen"> Registrar</ion-button> -->
