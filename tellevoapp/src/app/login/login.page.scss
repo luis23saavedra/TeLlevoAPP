@@ -1,0 +1,62 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+.margen{
+    margin-top: 30px;
+    margin-left: 35px;
+}
+// CAMBIO DE FONDO DE COLOR
+.fondo{
+    --ion-background-color: white;
+}
+.letra{
+    --ion-text-color:black;
+}
+  
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+} 
+  
+::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: black !important;
+}
+  
+::ng-deep.input {
+    /*change color of underline when focused*/
+    color: black !important;
+}
+  //CAMBIO DE COLOR DE INPUT
+::ng-deep.mat-form-field-appearance-fill{
+    color: black;
+}
+//BUTTONS.
+// .example-label {
+//     display: table-cell;
+//     font-size: 14px;
+//     margin-left: 50px;
+//     min-width: 120px;
+// }
+  
+// .example-button-row {
+//     display: table-cell;
+//     width: 490px;
+// }
+  
+// .example-button-row .mat-button-base {
+//     margin: 5px 5px 5px 0;
+// }
+  
+.margenb{
+    margin-top: 20px;
+    margin-left: 33px;
+    width: 205px;
+    color: white;
+    background-color: black;
+}

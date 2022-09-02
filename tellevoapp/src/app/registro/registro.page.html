@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form action="">
+    <div class="example-container letra">
+      <mat-form-field appearance="fill" class="letra" >
+        <mat-label class="letra">Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" class="letra" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+
+  <!-- EL FORMULARIO ES DE TIPO NGFORM, TIENE TODOS LOS ATRIBUTOS DE UN FORMULARIO, CUANDO SE HAGA EL SUBMIT SE EJECUTARÁ LA FUNCIÓN CREADA EN login.page.ts   -->
+  <form action="" #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+    <!-- [(ngModel)]="usuario.nombre" ALMACENA EL VALOR INGRESADO EN EL INPUT PARA PODER IMPRIMIRLO EN EL PAGE HOME SE ESPECIFICA QUE TENFA UN MINIMO DE 3 CARÁCTERES Y UN MÁXIMO DE 8. -->
+    <div class="example-container margen ion-margin-buttom" >
+      <mat-form-field hintLabel="Debe contener Mínimo 3 y Máx 8 carácteres" appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput #input type="text" name="user" minlength=3 maxlength="8" placeholder="Ingrese usuario" [(ngModel)]="usuario.nombre"  class="letra" required>
+        <!-- <mat-hint align="start">{{input.value?.length || 0}}/8</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="example-container margen ion-margin-top" >
+      <mat-form-field hintLabel="Debe contener Máx 4 números" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput #input type="password" name="password" [(ngModel)]="usuario.password" 
+        minlength=4 maxlength=4 placeholder="Ingrese contraseña" pattern="^[0-9]+$" required>
+        <!-- <mat-hint align="end">{{input.value?.length || 0}}/4</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <!-- <div class="example-label">Stroked</div> -->
+    <div class="example-button-row">
+            
+      <button mat-flat-button [disabled]="formulario.invalid" class="margenb">Ingresar</button>
+    </div> 
+    <!-- MIENTRAS EL FORMULARIO NO SEA VÁLIDO EL BOTÓN NO SE HABILITARÁ. -->
+    <!-- <ion-button expand="" type="submit" [disabled]="formulario.invalid" [routerLink]="['/home']" class="margen"> Registrar</ion-button> -->
+
+</form>
+</ion-content>
