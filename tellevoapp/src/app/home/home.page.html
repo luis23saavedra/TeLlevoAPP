@@ -1,12 +1,12 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true" class="fondo">
+<!-- <ion-content [fullscreen]="true" class="fondo"> -->
   
   <!-- <div class="example-container letra">
     <mat-form-field appearance="fill" class="letra" >
@@ -20,9 +20,23 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  
+  <ion-content class="auth-form">
+    <ion-text class="titleapp" color="sucess">
+      <div class="margin">
+      <br>
+      <img src="logoapp" src="../../assets/Tellevoapp.png">
+      <ion-progress-bar type="indeterminante" reversed="true"></ion-progress-bar>
+      </div>
+    </ion-text>
+    <ion-grid>
+      <ion-row>
+        <ion-col align-self-center>
+          <h2 class="Bienvenido">Bienvenido!</h2>
+          <ion-button [routerlink]="['/registration']" expand="block" type="submit" color="medium">Registro usuario</ion-button>
+          <h6 class="already">o si ya eres usuario</h6>
+          <ion-button [routerlink]="['/login']" expand="block" color="medium">Ingresar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content> 

@@ -37,59 +37,23 @@ export class RegistroPage implements OnInit {
   //VALIDACIÓN EMAIL.
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorEmail() {
+  getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'Debes ingresar un correo electrónico';
+      return 'Debes ingresar tu correo electrónico';
     }
 
     return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
   }
-  //VALIDACIÓN NOMBRE.
-  nombre = new FormControl('', [Validators.required]);
 
-  getErrorNombre() {
-    if (this.nombre.hasError('required')) {
-      return 'Debes ingresar tu nombre';
-    }
-
-    // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
-  }
-  //VALIDACIÓN APELLIDO.
-  apellido = new FormControl('', [Validators.required]);
-
-  getErrorApellido() {
-    if (this.apellido.hasError('required')) {
-      return 'Debes ingresar tu apellido';
-    }
-
-    // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
-  }
-  //VALIDACIÓN USUARIO.
-  usuario = new FormControl('', [Validators.required]);
-
-  getErrorUsuario() {
-    if (this.usuario.hasError('required')) {
-      return 'Debes ingresar tu usuario';
-    }
-
-    // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
-  }
   //VALIDACIÓN CONTRASEÑA.
-  contrasenia = new FormControl('', [Validators.required]);
-
-  getErrorContrasenia() {
-    if (this.contrasenia.hasError('required')) {
-      return 'Debes ingresar tu contrasenia';
-    }
-
-    // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
-  }
-  //VALIDACIÓN CONFIRMACIÓN CONTRASEÑA
-  confirmarContrasenia = new FormControl('', [Validators.required]);
-
-  getErrorConfirmarcontrasenia() {
-    if (this.confirmarContrasenia.hasError('required')) {
-      return 'Debes confirmar tu contrasenia';
+  contador : number;
+  getConfirmaContrasenia() {
+    if (this.datos.contrasenia === this.datos.confirmarContrasenia) {
+      contador : 1
+      console.log("Está entrando al metodo")
+      return 'Las contraseñas no coinciden';
+      
+      
     }
 
     // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';

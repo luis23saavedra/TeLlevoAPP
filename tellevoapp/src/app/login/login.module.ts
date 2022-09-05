@@ -12,6 +12,10 @@ import { LoginPage } from './login.page';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+//IMPORTADO PARA QUE APAREZCA EL INPUT DEL EMAIL.
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -21,7 +25,9 @@ import {MatButtonModule} from '@angular/material/button';
     LoginPageRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    ReactiveFormsModule
   ],
   declarations: [LoginPage]
 })

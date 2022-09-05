@@ -9,10 +9,12 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   //CREACIÓN DEL ARREGLO PARA CAPTURAR LOS DATOS DEL USUARIO.
-  usuario = {
-    nombre:'',
-    password:''
-  };
+  datos = {
+
+    nombre: "",
+    contrasenia: "",
+    
+  }
   //CREACIÓN DE LA INSTANCIA ROUTER PARA PERMITIR EL ENVÍO DE LA INFORMACIÓN.
   constructor(private router: Router) { }
 
@@ -20,11 +22,10 @@ export class LoginPage implements OnInit {
   }
   //CREACIÓN DE FUNCIÓN QUE SE EJECUTARÁ AL MOMENTO DE HACER SUBMIT EN EL FORMULARIO.
   onSubmitTemplate(){
-    console.log("guardado")
-    console.log(this.usuario)
+    
     let navigationExtras: NavigationExtras = {
       state: {
-        user: this.usuario // Al estado se asignamos un objeto con clave y valor
+        user: this.datos // Al estado se asignamos un objeto con clave y valor
       }
     };
     this.router.navigate(['/home'],navigationExtras); // navegamos hacia el Home y enviamos información adicional
