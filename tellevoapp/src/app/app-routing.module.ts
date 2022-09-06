@@ -30,8 +30,22 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'movilizacion',
+    loadChildren: () => import('./movilizacion/movilizacion.module').then( m => m.MovilizacionPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'movilizacion',
+    pathMatch: 'full'
+  },
+  {
+    path: 'transporte',
+    loadChildren: () => import('./transporte/transporte.module').then( m => m.TransportePageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'transporte',
+    pathMatch: 'full'
   },
 ];
 

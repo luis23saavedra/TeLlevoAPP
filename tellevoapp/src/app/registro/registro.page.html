@@ -16,8 +16,7 @@
           <ion-col size="12">
             <mat-form-field appearance="fill" class="letra" >
               <input matInput placeholder="Ingrese su nombre" name="nombre" type="text" minlength=3 maxlength=10 class="letra" [(ngModel)]="datos.nombre" #nombre="ngModel" pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" required>
-              <!-- <mat-error *ngIf="nombre.invalid">{{getErrorNombre()}}</mat-error> -->
-              <!-- ESTAS VALIDACIONES SE VAN A OCUPAR ELIMINAR LAS VALIDACIONES DEL TS, VISITAR LA PÁGINA DE ANGULAR Y BORRAR LOS MAT-ERROR ANTERIORES -->
+              <!-- VALIDACIONES -->
               <mat-error *ngIf="nombre.errors?.['required']">
                 Debes ingresar tu nombre.
               </mat-error>
@@ -27,6 +26,7 @@
               <mat-error *ngIf="nombre.errors?.['minlength']">
                 Debes ingresar al menos 3 carácteres.
               </mat-error>
+              <!-- VALIDACIONES -->
             </mat-form-field>
           </ion-col>  
       </ion-row>
@@ -40,7 +40,7 @@
           <ion-col size="12">
             <mat-form-field appearance="fill" class="letra" >
               <input matInput placeholder="Ingrese su apellido" name="apellido" type="text" minlength=3 maxlength=10  class="letra" [(ngModel)]="datos.apellido" #apellido="ngModel" pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" required>
-              <!-- <mat-error *ngIf="apellido.invalid">{{getErrorApellido()}}</mat-error> -->
+              <!-- VALIDACIONES -->
               <mat-error *ngIf="apellido.errors?.['required']">
                 Debes ingresar tu apellido.
               </mat-error>
@@ -50,34 +50,12 @@
               <mat-error *ngIf="apellido.errors?.['minlength']">
                 Debes ingresar al menos 4 carácteres.
               </mat-error>
+              <!-- VALIDACIONES -->
             </mat-form-field>
           </ion-col>  
       </ion-row>
     </div>
     
-    <div class="margin-contenido letra">
-      <ion-row >
-          <ion-col size="12">
-            Nombre Usuario
-          </ion-col>
-          <ion-col size="12">
-            <mat-form-field appearance="fill" class="letra" >
-              <input matInput placeholder="Ingrese su usuario" name="usuario" minlength=3 maxlength=10 class="letra" #usuario="ngModel"  [(ngModel)]="datos.usuario" required>
-              <!-- <mat-error *ngIf="usuario.invalid">{{getErrorUsuario()}}</mat-error> -->
-              <mat-error *ngIf="usuario.errors?.['required']">
-                Debes ingresar tu usuario.
-              </mat-error>
-              <!-- <mat-error *ngIf="usuario.errors?.['pattern']">
-                Usuario inválido.
-              </mat-error> -->
-              <mat-error *ngIf="usuario.errors?.['minlength']">
-                Debes ingresar al menos 4 carácteres.
-              </mat-error>
-            </mat-form-field>
-          </ion-col>  
-      </ion-row>
-    </div>
-
     <div class="margin-contenido letra">
       <ion-row >
           <ion-col size="12">
@@ -87,7 +65,11 @@
             <mat-form-field appearance="fill" class="letra" >
               <input matInput placeholder="Ingrese su correo electrónico" name="email"
                class="letra" [formControl]="email" [(ngModel)]="datos.email" required>
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              <!-- VALIDACIONES -->
+               <mat-error *ngIf="email.invalid">
+                {{getErrorMessage()}}
+              </mat-error>
+              <!-- VALIDACIONES -->
             </mat-form-field>
           </ion-col>  
       </ion-row>
@@ -101,7 +83,7 @@
           <ion-col size="12">
             <mat-form-field appearance="fill" class="letra" >
               <input matInput placeholder="Ingrese su contraseña" name="contrasenia" type="password" minlength=5 maxlength=5 class="letra" #contrasenia="ngModel" pattern="^[0-9]+$" [(ngModel)]="datos.contrasenia" required>
-              <!-- <mat-error *ngIf="contrasenia.invalid">{{getErrorContrasenia()}}</mat-error> -->
+              <!-- VALIDACIONES -->
               <mat-error *ngIf="contrasenia.errors?.['required']">
                 Debes ingresar tu contrasenia.
               </mat-error>
@@ -111,6 +93,7 @@
               <mat-error *ngIf="contrasenia.errors?.['minlength']">
                 La contraseña debe contener 5 números.
               </mat-error>
+              <!-- VALIDACIONES -->
             </mat-form-field>
           </ion-col>  
       </ion-row>
@@ -124,6 +107,7 @@
           <ion-col size="12">
             <mat-form-field appearance="fill" class="letra" >
               <input matInput placeholder="Confirme su contraseña" name="confirmarContrasenia" type="password" minlength=5 maxlength=5 minlength=5 maxlength=5 #confirmarContrasenia="ngModel" pattern="^[0-9]+$" class="letra" [(ngModel)]="datos.confirmarContrasenia" required>
+              <!-- VALIDACIONES -->
               <mat-error *ngIf="confirmarContrasenia.errors?.['required']">
                 Debes confirmar tu contrasenia.
               </mat-error>
@@ -133,7 +117,9 @@
               <mat-error *ngIf="confirmarContrasenia.errors?.['minlength']">
                 Debes ingresar 5 números.
               </mat-error>
-              <mat-error class="confirmar-contrasenia" *ngIf="contador>0">{{getConfirmaContrasenia()}}</mat-error>
+              <mat-error class="confirmar-contrasenia" *ngIf="contador>0">      {{getConfirmaContrasenia()}}
+              </mat-error>
+              <!-- VALIDACIONES -->
             </mat-form-field>
           </ion-col>  
       </ion-row>
@@ -141,7 +127,7 @@
 
     <ion-row>
       <div class="example-button-row">
-        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/registro']" (click)="guardarDatos()">Registrar</button>
+        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/login']" (click)="guardarDatos()">Registrar</button>
       </div> 
     </ion-row>
 

@@ -8,9 +8,9 @@
 
   <ion-content class="fondo letra">
 
-    <form action="" #formulario="ngForm" (ngSubmit)="guardarDatos()">
+    <form action="" #formulario="ngForm" >
       
-      <div class="margin-superior letra">
+      <div class="margin-contenido letra">
         <ion-row >
             <ion-col size="12">
               Nombre
@@ -18,8 +18,7 @@
             <ion-col size="12">
               <mat-form-field appearance="fill" class="letra" >
                 <input matInput placeholder="Ingrese su nombre" name="nombre" type="text" minlength=3 maxlength=10 class="letra" [(ngModel)]="datos.nombre" #nombre="ngModel" pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" required>
-                <!-- <mat-error *ngIf="nombre.invalid">{{getErrorNombre()}}</mat-error> -->
-                <!-- ESTAS VALIDACIONES SE VAN A OCUPAR ELIMINAR LAS VALIDACIONES DEL TS, VISITAR LA PÁGINA DE ANGULAR Y BORRAR LOS MAT-ERROR ANTERIORES -->
+                <!-- VALIDACIONES -->
                 <mat-error *ngIf="nombre.errors?.['required']">
                   Debes ingresar tu nombre.
                 </mat-error>
@@ -29,6 +28,7 @@
                 <mat-error *ngIf="nombre.errors?.['minlength']">
                   Debes ingresar al menos 3 carácteres.
                 </mat-error>
+                <!-- VALIDACIONES -->
               </mat-form-field>
             </ion-col>  
         </ion-row>
@@ -42,7 +42,7 @@
             <ion-col size="12">
               <mat-form-field appearance="fill" class="letra" >
                 <input matInput placeholder="Ingrese su contraseña" name="contrasenia" type="password" minlength=5 maxlength=5 class="letra" #contrasenia="ngModel" pattern="^[0-9]+$" [(ngModel)]="datos.contrasenia" required>
-                <!-- <mat-error *ngIf="contrasenia.invalid">{{getErrorContrasenia()}}</mat-error> -->
+                <!-- VALIDACIONES -->
                 <mat-error *ngIf="contrasenia.errors?.['required']">
                   Debes ingresar tu contrasenia.
                 </mat-error>
@@ -52,44 +52,40 @@
                 <mat-error *ngIf="contrasenia.errors?.['minlength']">
                   La contraseña debe contener 5 números.
                 </mat-error>
+                <!-- VALIDACIONES -->
               </mat-form-field>
             </ion-col>  
+        </ion-row>
+      </div>
+      
+      <div class="margin-contenido">
+        <ion-row>
+          <ion-col size="12">
+            ¿Que deseas hacer?
+          </ion-col>
+          <ion-col size="12">  
+            <mat-form-field appearance="fill">
+              <mat-select [(ngModel)]="selectedValue" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.usuario" required>
+                <mat-option *ngFor="let select of opciones"  [value]="select.value"  required>
+                  {{select.viewValue}}
+                </mat-option>
+              </mat-select>
+              <!-- VALIDACIONES -->
+              <mat-error *ngIf="select.errors?.['required']">
+                Debes seleccionar una opción.
+              </mat-error>
+              <!-- VALIDACIONES -->
+            </mat-form-field>
+          </ion-col>
         </ion-row>
       </div>  
       
       <ion-row>
         <div class="example-button-row">
-          <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/registro']" (click)="guardarDatos()">Registrar</button>
+          <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="redirecionPage()">Ingresar</button>
         </div> 
       </ion-row>
   
     </form>
-  <!-- EL FORMULARIO ES DE TIPO NGFORM, TIENE TODOS LOS ATRIBUTOS DE UN FORMULARIO, CUANDO SE HAGA EL SUBMIT SE EJECUTARÁ LA FUNCIÓN CREADA EN login.page.ts   -->
-  <!-- <form action="" #formulario="ngForm" (ngSubmit)="onSubmitTemplate()"> -->
-    <!-- [(ngModel)]="usuario.nombre" ALMACENA EL VALOR INGRESADO EN EL INPUT PARA PODER IMPRIMIRLO EN EL PAGE HOME SE ESPECIFICA QUE TENFA UN MINIMO DE 3 CARÁCTERES Y UN MÁXIMO DE 8. -->
-    <!-- <div class="example-container margen ion-margin-buttom" >
-      <mat-form-field hintLabel="Debe contener Mínimo 3 y Máx 8 carácteres" appearance="fill">
-        <mat-label>Usuario</mat-label>
-        <input matInput #input type="text" name="user" minlength=3 maxlength="8" placeholder="Ingrese usuario" [(ngModel)]="usuario.nombre"  class="letra" required> -->
-        <!-- <mat-hint align="start">{{input.value?.length || 0}}/8</mat-hint> -->
-      <!-- </mat-form-field>
-    </div> -->
-    
-    <!-- <div class="example-container margen ion-margin-top" >
-      <mat-form-field hintLabel="Debe contener Máx 4 números" appearance="fill">
-        <mat-label>Contraseña</mat-label>
-        <input matInput #input type="password" name="password" [(ngModel)]="usuario.password" 
-        minlength=4 maxlength=4 placeholder="Ingrese contraseña" pattern="^[0-9]+$" required> -->
-        <!-- <mat-hint align="end">{{input.value?.length || 0}}/4</mat-hint> -->
-      <!-- </mat-form-field>
-    </div> -->
-    <!-- <div class="example-label">Stroked</div> -->
-    <!-- <div class="example-button-row">
-            
-      <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/registro']">Ingresar</button>
-    </div>  -->
-    <!-- MIENTRAS EL FORMULARIO NO SEA VÁLIDO EL BOTÓN NO SE HABILITARÁ. -->
-    <!-- <ion-button expand="" type="submit" [disabled]="formulario.invalid" [routerLink]="['/home']" class="margen"> Registrar</ion-button> -->
-
-<!-- </form> -->
+  
 </ion-content>

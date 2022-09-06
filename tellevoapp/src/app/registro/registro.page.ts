@@ -13,25 +13,9 @@ export class RegistroPage implements OnInit {
 
     nombre: "",
     apellido: "",
-    usuario: "",
     email: "",
     contrasenia: "",
     confirmarContrasenia: ""
-  }
-    
-  //FUNCIÓN QUE ENVIARÁ LOS DATOS AL COMPONENT MOSTRAR INICIO DE INTERPOLACIÓN.
-  mostrarDatos(){
-    console.log("obteniendo datos")
-    console.log(this.datos)      
-
-  }
-  //VALIDANDO CAMPOS.
-  validarDatos(){
-
-    if (this.datos.nombre === ""){
-
-      return true;
-    }
   }
   //********************************* VALIDACIONES ********************************* */
   //VALIDACIÓN EMAIL.
@@ -44,7 +28,6 @@ export class RegistroPage implements OnInit {
 
     return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
   }
-
   //VALIDACIÓN CONTRASEÑA.
   contador : number;
   getConfirmaContrasenia() {
@@ -56,7 +39,6 @@ export class RegistroPage implements OnInit {
       
     }
 
-    // return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
   }
   //***************************** SUBMIT ***************************************** */
   guardarDatos(){
