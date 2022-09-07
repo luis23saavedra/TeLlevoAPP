@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -40,12 +41,18 @@ export class RegistroPage implements OnInit {
     }
 
   }
-  //***************************** SUBMIT ***************************************** */
-  guardarDatos(){
+   //ALERTA
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Registro Guardado',
+      subHeader: '',
+      message: 'Su registro ha sido guardado con éxito',
+      buttons: ['OK'],
+    });
 
-    console.log(this.datos)
+    await alert.present();
   }
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   ngOnInit() {
   }

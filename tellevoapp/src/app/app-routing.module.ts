@@ -3,6 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -21,32 +30,33 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'chofer',
+    loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'chofer',
     pathMatch: 'full'
   },
   {
-    path: 'movilizacion',
-    loadChildren: () => import('./movilizacion/movilizacion.module').then( m => m.MovilizacionPageModule)
+    path: 'pasajero',
+    loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule)
   },
   {
     path: '',
-    redirectTo: 'movilizacion',
+    redirectTo: 'pasajero',
     pathMatch: 'full'
   },
   {
-    path: 'transporte',
-    loadChildren: () => import('./transporte/transporte.module').then( m => m.TransportePageModule)
+    path: 'restablecer-contrasenia',
+    loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
   },
   {
     path: '',
-    redirectTo: 'transporte',
+    redirectTo: 'restablecer-contrasenia',
     pathMatch: 'full'
   },
+  
 ];
 
 @NgModule({

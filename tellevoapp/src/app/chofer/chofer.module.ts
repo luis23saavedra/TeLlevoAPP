@@ -4,29 +4,33 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegistroPageRoutingModule } from './registro-routing.module';
+import { ChoferPageRoutingModule } from './chofer-routing.module';
 
-import { RegistroPage } from './registro.page';
-//ANGULAR MATERIAL.
+import { ChoferPage } from './chofer.page';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-//IMPORTADO PARA UTILIZACIÓN DE FORMULARIOS REACTIVOS.
+import {MatSelectModule} from '@angular/material/select';
+//IMPORTADO PARA QUE APAREZCA EL INPUT DEL EMAIL.
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegistroPageRoutingModule,
+    ChoferPageRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatRadioModule
   ],
-  declarations: [RegistroPage]
+  declarations: [ChoferPage]
 })
-export class RegistroPageModule {}
+export class ChoferPageModule {}

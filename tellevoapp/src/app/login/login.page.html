@@ -1,16 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
-  </ion-toolbar>
+  </ion-toolbar>      
 </ion-header>
-
-<ion-content class="fondo">
 
   <ion-content class="fondo letra">
 
     <form action="" #formulario="ngForm" >
       
-      <div class="margin-contenido letra">
+      <div class="margin-contenido letra caja3">
         <ion-row >
             <ion-col size="12">
               Nombre
@@ -34,7 +32,7 @@
         </ion-row>
       </div>
       
-      <div class="margin-contenido letra">
+      <div class="margin-contenido letra caja3">
         <ion-row >
             <ion-col size="12">
               Contraseña
@@ -58,7 +56,7 @@
         </ion-row>
       </div>
       
-      <div class="margin-contenido">
+      <div class="margin-contenido caja3">
         <ion-row>
           <ion-col size="12">
             ¿Que deseas hacer?
@@ -78,7 +76,20 @@
             </mat-form-field>
           </ion-col>
         </ion-row>
-      </div>  
+      </div> 
+      
+      <div class="margin-contenido caja3">
+        <ion-row>
+          <ion-col>
+            <h4>¿Has olvidado tu contraseña?</h4>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <a href="" [routerLink]="['/restablecer-contrasenia']">Restablecer Contraseña</a>
+          </ion-col>
+        </ion-row>
+      </div>
       
       <ion-row>
         <div class="example-button-row">
@@ -87,5 +98,5 @@
       </ion-row>
   
     </form>
-  
+    
 </ion-content>

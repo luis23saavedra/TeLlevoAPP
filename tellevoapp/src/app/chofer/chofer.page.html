@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Progamando Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo letra">
+
+  <form action="" #formulario="ngForm" >
+      
+    <div class="margin-contenido letra caja3 ">
+      <ion-row >
+          <ion-col size="5">
+            Usuario
+          </ion-col>
+          <ion-col size="5">
+            <!-- IMPRESIÓN NOMBRE DE USUARIO POR INTERPOLACIÓN -->
+            {{data.nombre}}
+          </ion-col> 
+      </ion-row>
+    </div>
+
+    <mat-divider [inset]="true" class="caja3"></mat-divider>
+
+    <div class="margin-contenido caja3">
+      <ion-row>
+        <ion-col size="12">
+          Selecciona tu sector
+        </ion-col>
+        <ion-col size="12">  
+          <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="selectedValue" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.ruta" required>
+              <mat-option *ngFor="let select of opciones"  [value]="select.value"  required>
+                {{select.viewValue}}
+              </mat-option>
+            </mat-select>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="select.errors?.['required']">
+              Debes ingresar tu sector.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="margin-check letra caja3">
+      <ion-row >
+        <ion-col size="12">
+          Patente
+        </ion-col>
+        <ion-col>
+          <mat-form-field appearance="fill" class="letra" >
+            <input matInput placeholder="Ingresa tu patente" name="patente" type="text" minlength=6 maxlength=6 class="letra" [(ngModel)]="datos.patente" #patente="ngModel"  required>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="patente.errors?.['required']">
+              Debes ingresar tu patente.
+            </mat-error>
+            
+            <mat-error *ngIf="patente.errors?.['minlength']">
+              Debes ingresar al menos 6 carácteres.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+    </div>
+    
+    <div class="margin-check caja3">
+      <ion-row>
+        <ion-col size="12">
+          Modelo vehículo
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="fill" class="letra" >
+            <input matInput placeholder="Ingresas modelo vehículo" name="modelo" type="text" minlength=3 maxlength=10 class="letra" [(ngModel)]="datos.modelo" #modelo="ngModel" required>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="modelo.errors?.['required']">
+              Debes ingresar el modelo del vehículo.
+            </mat-error>
+            
+            <mat-error *ngIf="modelo.errors?.['minlength']">
+              Debes ingresar al menos 3 carácteres.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+        
+    </div> 
+
+    <div class="margin-check letra caja3">
+      <ion-row>
+        <ion-col size="12">
+          Establece la tarifa:
+        </ion-col>
+        <ion-col size="12">
+
+          <mat-radio-group name="labelPosition" [(ngModel)]="labelPosition">
+            <mat-radio-button class="example-margin"  value="after">$50 x minuto</mat-radio-button>
+            <mat-radio-button class="example-margin" value="before">$100 x minuto</mat-radio-button>
+          </mat-radio-group>
+
+        </ion-col>
+      </ion-row>
+    </div>
+    
+    <mat-divider [inset]="true" class="caja3"></mat-divider>
+
+    <ion-row>
+      <div class="example-button-row">
+        <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="redirecionPage()">Ingresar</button>
+      </div> 
+    </ion-row>
+
+    <ion-row>
+      <div class="example-button-row">
+        <button mat-flat-button  class="margenb2" [routerLink]="['/login']">Volver</button>
+      </div> 
+    </ion-row>
+
+  </form>
+
+</ion-content>

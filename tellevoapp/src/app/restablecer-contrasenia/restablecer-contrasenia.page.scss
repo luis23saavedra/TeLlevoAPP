@@ -1,0 +1,164 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.example-container{
+    background-color: 
+    #f9fafc  ;
+    padding-top: 10px;
+    padding-bottom: 200px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    transition:all 0.3s ease;
+
+}
+.fondo{
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color: #f9fafc;
+    margin-top: 5px;
+}
+.x{
+    background-color:  #d0d3d4;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #dcdcdc;
+    opacity: 0.5;
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    padding-right: 40px;
+    padding-bottom: 50px;
+}
+.letras{
+    margin-bottom: 55px;
+    margin-left: 60px;
+    color: #262626;
+    background-color: 
+    #ecf0f1 ;
+}
+.color-letra{
+    margin-top: -10px;
+    margin-left: 60px;
+    color:  #34495e ;
+}
+.input{
+    margin-left: 25px;
+    width: 120px;
+    background-color: #f9fafc ;
+    padding-right: 60px;
+    --ion-text-color:black;
+    border-radius: 10px;
+}
+.error{
+    
+    margin-left: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    background-color:  #d0d3d4 ;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+}
+.caja{
+    background-color: black;
+    
+    margin-top: -50px;
+    margin-left: 15px;
+    margin-right: 20px;
+    width:244px;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: #262626;
+    border-bottom: 1px;
+    
+}
+.maximizar{
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #f9fafc;
+}
+.cerrar{
+    margin-top: -8px;
+    margin-left: 15px;
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #f9fafc;
+}
+.interpol{
+    margin-top: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+.color-interpol{
+    color: black;
+    margin-left: 0px;
+    font-size: 14px;
+    text-align: center;
+}
+//.example-container .mat-form-field + .mat-form-field {
+    //margin-left: 8px;
+  //}
+
+  mat-button-toggle-group {
+    margin-left: 95px;
+    margin-top: 70px;
+  }
+.boton {
+    margin-left: 12px;
+    margin-top: 160px;
+    background: black;
+    border-radius: 5px;
+    width: 250px;
+    
+    
+}
+  ::ng-deep.input{
+      color: black !important;
+
+  }
+  ::ng-deep.mat-form-field-appearance-fill{
+      color:black;
+  }
+
+.titulo{
+    margin-left: 10px;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.boton-volver{
+   margin-left: 0px;
+    width: 50px;
+    height: 30px;
+    padding-bottom: 1px;
+    background: white;
+    border: #dcdcdc solid 2px ;
+    border-radius: 10px;
+    opacity: 0.5;
+    margin-bottom: -10px;
+}
+.letra-volver{
+    margin-top: 5px;
+    color: black;
+    padding-bottom: 0;
+    font-family: sans-serif;
+}

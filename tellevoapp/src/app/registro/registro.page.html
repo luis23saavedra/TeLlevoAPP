@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>registro</ion-title>
+    <ion-title>Registrar Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -127,7 +127,13 @@
 
     <ion-row>
       <div class="example-button-row">
-        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/login']" (click)="guardarDatos()">Registrar</button>
+        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb" [routerLink]="['/login']" (click)="presentAlert()">Registrar</button>
+      </div> 
+    </ion-row>
+
+    <ion-row>
+      <div class="example-button-row">
+        <button mat-flat-button  class="margenb2" [routerLink]="['/home']" >Volver</button>
       </div> 
     </ion-row>
 

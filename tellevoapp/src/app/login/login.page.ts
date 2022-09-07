@@ -20,8 +20,8 @@ export class LoginPage implements OnInit {
   selectedValue: string;
   //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
   opciones: Seleccion[] = [
-    {value: 'transporte', viewValue: 'Programar viaje'},
-    {value: 'movilizacion', viewValue: 'Solicitar Movilización'},
+    {value: 'chofer', viewValue: 'Programar viaje'},
+    {value: 'pasajero', viewValue: 'Solicitar Movilización'},
   ];
   
   //INICIALIZACIÓN DE OBJETO PARA CAPTURAR LOS DATOS INGRESADOS DEL USUARIO.
@@ -47,13 +47,13 @@ export class LoginPage implements OnInit {
       }
     };
     //SI EL USUARIO SELECCIONA PROGRAMAR VIAJE, SE REDIRECCIONARÁ AL PAGE DE ARRIENDO
-    if (this.selectedValue === 'transporte'){
+    if (this.selectedValue === 'chofer'){
       //NAVEGACIÓN AL PAGE ARRIENDO.
-      this.router.navigate(['/transporte'],navigationExtras); 
+      this.router.navigate(['/chofer'],navigationExtras); 
     // POR EL CONTRARIO SE REDIRECCIONA AL PAGE MOVILIZACIÓN  
     }else{
       //NAVEGACIÓN AL PAGE MOVILIZACIÓN.
-      this.router.navigate(['/movilizacion'],navigationExtras);
+      this.router.navigate(['/pasajero'],navigationExtras);
     }  
   }
   //FIN EXPORT CLASS.
