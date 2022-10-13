@@ -8,43 +8,50 @@
   
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
-    color: black !important;
+    color: rgb(0, 22, 75) !important;
 }
   
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
-    background-color: black !important;
+    background-color: rgb(0, 22, 75) !important;
 } 
   
 ::ng-deep.mat-form-field-ripple {
    /*change color of underline when focused*/
-   background-color: black !important;
+   background-color: rgb(0, 22, 75) !important;
 }
   
 ::ng-deep.input {
     /*change color of underline when focused*/
-    color: black !important;
+    color: rgb(0, 22, 75) !important;
 }
   //CAMBIO DE COLOR DE INPUT
 ::ng-deep.mat-form-field-appearance-fill{
-    color: black;
+    color: rgb(0, 22, 75);
 }
 // MARGEN BOTON.  
 .margenb{
+    margin-top: 10px;
+    margin-left: 33px;
+    width: 205px;
+    color: white;
+    background-color: rgb(0, 22, 75);
+}
+.margenb2{
     margin-top: 20px;
     margin-left: 33px;
     width: 205px;
     color: white;
-    background-color: black;
-}
+    background-color: red;
+  }
 //MARGEN GENERAL.
 .margin-superior{
-    margin-top: 50px;
-    margin-left: 30px;
+    margin-top: 80px;
+    
 }
 .margin-contenido{
     //margin-left: 30px;
-    margin-top: 35px;
+    margin-top: 5px;
 }
 
 .caja3{

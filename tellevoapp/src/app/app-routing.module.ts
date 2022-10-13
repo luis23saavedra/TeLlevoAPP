@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { PasajeroPage } from './pasajero/pasajero.page';
+ import { LoginPage } from './login/login.page';
+import { ChoferPage } from './chofer/chofer.page';
+import { RegistroPage } from './registro/registro.page';
+import { PerfilPage } from './perfil/perfil.page';
 
 const routes: Routes = [
   {
@@ -9,7 +15,8 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+   
   },
   {
     path: 'login',
@@ -17,8 +24,9 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    component: LoginPage
+    
   },
   {
     path: 'registro',
@@ -26,17 +34,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'registro',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    component: RegistroPage
+    
   },
   {
     path: 'chofer',
     loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule)
   },
   {
-    path: '',
-    redirectTo: 'chofer',
-    pathMatch: 'full'
+    path: 'chofer',
+    pathMatch: 'full',
+    component:ChoferPage,
+    children:[
+      {
+        path:'perfil',
+        component: PerfilPage,
+      }
+    ]
   },
   {
     path: 'pasajero',
@@ -48,14 +63,27 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'restablecer-contrasenia',
-    loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
-  {
-    path: '',
-    redirectTo: 'restablecer-contrasenia',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'pasajero',
+  //   pathMatch: 'full',
+  //   component: PerfilPage
+    
+  // },
+  // {
+  //   path: 'restablecer-contrasenia',
+  //   loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: 'restablecer-contrasenia',
+  //   pathMatch: 'full'
+  // },
+  
+
   
 ];
 

@@ -28,13 +28,16 @@
 ::ng-deep.mat-form-field-appearance-fill{
   color: black;
 }
+.menu-style{
+  background-color:  white;
+}
 // MARGEN BOTON.  
 .margenb{
   margin-top: 20px;
   margin-left: 33px;
   width: 205px;
   color: white;
-  background-color: black;
+  background-color: rgb(0, 22, 75);
 }
 .margenb2{
   margin-top: 20px;
@@ -44,16 +47,12 @@
   background-color: red;
 }
 //MARGEN GENERAL.
-.margin-superior{
-  margin-top: 50px;
-  margin-left: 30px;
-}
 .margin-contenido{
   //margin-left: 30px;
-  margin-top: 35px;
-}
-.margin-check{
   margin-top: 10px;
+}
+.margin-superior{
+  margin-top: 70px;
 }
 .example-margin {
   margin: 0 40px;

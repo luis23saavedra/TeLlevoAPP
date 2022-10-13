@@ -1,32 +1,24 @@
-  <ion-header >
-    <ion-toolbar>
-      <div class="titulo-toolbar ion-text-center">
-        Te llevo App
-        <!-- <ion-title>Te Llevo App</ion-title> -->
-      </div>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="fondo">
+    
+  <ion-content class="fondo ">
     <ion-text class="" color="sucess">
-      <div class="margin fondo">
+      <div class="margin-superior fondo ">
       
       <img src="logoapp" src="../../assets/Tellevoapp.png">
       <ion-progress-bar type="indeterminante" reversed="true"></ion-progress-bar>
       </div>
     </ion-text>
-    <ion-grid class="margin fondo">
-      <ion-row>
+    <ion-grid class=" fondo">
+      <ion-row class="margin-fondo">
         <ion-col align-self-center>
           <h2 class="margin-titulo">Bienvenido</h2>
           <ion-button [routerLink]="['/registro']" expand="block" type="submit" color="primary" class="boton">Registro usuario</ion-button>
           <ion-row class="margin-subtitulo">
             <h4 >Si ya eres usuario</h4>
-          </ion-row>
-          
+          </ion-row >
           <ion-button [routerLink]="['/login']" expand="block" color="primary" class="boton">Ingresar</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-content>
+
   

@@ -1,6 +1,6 @@
 
-.margin{
-  margin-top: 0px;
+.margin-superior{
+  margin-top: 32px;
 }
 
 .margin-titulo{
@@ -12,7 +12,7 @@
 }
 .margin-subtitulo{
   margin-left: 70px;
-  margin-top: 30px;
+  margin-top: 40px;
   font-style: oblique;
   font-weight: 550;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -29,10 +29,24 @@
 }
 .fondo{
   background: rgb(0, 22, 75);
+  
 }
 .boton{
   font-weight: 500;
   font-style: italic;
+  margin-top: 50px;
+  
 }
+.margin-fondo{
+  margin-bottom: 15px;
+}
+.footer{
+  background-color: rgb(192, 192, 192);
+  color: rgb(0, 22, 75);
+  font-style: italic;
+  font-size: small;
+  padding-top: 10px;
+}
+
 
 

@@ -1,14 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>      
-</ion-header>
 
   <ion-content class="fondo letra">
 
     <form action="" #formulario="ngForm" >
       
-      <div class="margin-contenido letra caja3">
+      <div class="margin-superior letra caja3">
         <ion-row >
             <ion-col size="12">
               Nombre
@@ -92,8 +87,13 @@
       </div>
       
       <ion-row>
-        <div class="example-button-row">
+        <div >
           <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="redirecionPage()">Ingresar</button>
+        </div> 
+      </ion-row>
+      <ion-row>
+        <div>
+          <button mat-flat-button  class="margenb2" [routerLink]="['/home']" >Volver</button>
         </div> 
       </ion-row>
   

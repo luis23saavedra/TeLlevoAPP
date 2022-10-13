@@ -1,0 +1,40 @@
+.titulo-toolbar{
+    background-color: rgb(0, 22, 75);
+    color: rgb(255, 183, 28);
+    padding-top: 25px;
+    padding-bottom: 2px;
+    font-style: oblique;
+    font-weight: 550;
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.footer{
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 22, 75);
+    font-style: italic;
+    font-size: small;
+    padding-top: 10px;
+}
+.boton-menu{
+    background-color: rgb(192, 192, 192);
+}
+.fondo-menu{
+    background-color: rgb(0, 22, 200);
+    
+}
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    margin-left: 75px;
+}
+.scrollbar{
+    // margin:1px;
+    position:absolute;
+    display:flex;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    white-space: nowrap;
+}

@@ -3,11 +3,12 @@ import {FormControl, Validators} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
 })
-export class RegistroPage implements OnInit {
+export class PerfilPage implements OnInit {
+
   //CAPTURACIÓN DE DATOS.
 
   datos = {
@@ -52,6 +53,7 @@ export class RegistroPage implements OnInit {
 
     await alert.present();
   }
+
   constructor(private alertController: AlertController) { }
 
   ngOnInit() {

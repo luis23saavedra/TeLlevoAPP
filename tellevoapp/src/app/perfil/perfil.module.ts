@@ -4,38 +4,30 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ChoferPageRoutingModule } from './chofer-routing.module';
+import { PerfilPageRoutingModule } from './perfil-routing.module';
 
-import { ChoferPage } from './chofer.page';
+import { PerfilPage } from './perfil.page';
 
+//ANGULAR MATERIAL.
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatSelectModule} from '@angular/material/select';
-//IMPORTADO PARA QUE APAREZCA EL INPUT DEL EMAIL.
+//IMPORTADO PARA UTILIZACIÓN DE FORMULARIOS REACTIVOS.
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatRadioModule} from '@angular/material/radio';
-
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChoferPageRoutingModule,
+    PerfilPageRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatRadioModule,
-    MatMenuModule,
-    MatIconModule
+    ReactiveFormsModule
   ],
-  declarations: [ChoferPage]
+  declarations: [PerfilPage]
 })
-export class ChoferPageModule {}
+export class PerfilPageModule {}
