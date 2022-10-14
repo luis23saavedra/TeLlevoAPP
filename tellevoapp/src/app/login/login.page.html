@@ -6,20 +6,20 @@
       <div class="margin-superior letra caja3">
         <ion-row >
             <ion-col size="12">
-              Nombre
+              Rut
             </ion-col>
             <ion-col size="12">
               <mat-form-field appearance="fill" class="letra" >
-                <input matInput placeholder="Ingrese su nombre" name="nombre" type="text" minlength=3 maxlength=10 class="letra" [(ngModel)]="datos.nombre" #nombre="ngModel" pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" required>
+                <input matInput placeholder="Ingrese su rut" name="rut" type="text" minlength=10 maxlength=10 class="letra" [(ngModel)]="datos.rut" #rut="ngModel" pattern="^[0-9]+-[0-9kK]{1}$" required>
                 <!-- VALIDACIONES -->
-                <mat-error *ngIf="nombre.errors?.['required']">
-                  Debes ingresar tu nombre.
+                <mat-error *ngIf="rut.errors?.['required']">
+                  Debes ingresar tu rut.
                 </mat-error>
-                <mat-error *ngIf="nombre.errors?.['pattern']">
-                  Nombre inválido.
+                <mat-error *ngIf="rut.errors?.['pattern']">
+                  Rut inválido.
                 </mat-error>
-                <mat-error *ngIf="nombre.errors?.['minlength']">
-                  Debes ingresar al menos 3 carácteres.
+                <mat-error *ngIf="rut.errors?.['minlength']">
+                  El rut debe contener 10 carácteres.
                 </mat-error>
                 <!-- VALIDACIONES -->
               </mat-form-field>
@@ -51,7 +51,7 @@
         </ion-row>
       </div>
       
-      <div class="margin-contenido caja3">
+      <!-- <div class="margin-contenido caja3">
         <ion-row>
           <ion-col size="12">
             ¿Que deseas hacer?
@@ -62,16 +62,16 @@
                 <mat-option *ngFor="let select of opciones"  [value]="select.value"  required>
                   {{select.viewValue}}
                 </mat-option>
-              </mat-select>
+              </mat-select> -->
               <!-- VALIDACIONES -->
-              <mat-error *ngIf="select.errors?.['required']">
+              <!-- <mat-error *ngIf="select.errors?.['required']">
                 Debes seleccionar una opción.
-              </mat-error>
+              </mat-error> -->
               <!-- VALIDACIONES -->
-            </mat-form-field>
+            <!-- </mat-form-field>
           </ion-col>
         </ion-row>
-      </div> 
+      </div>  -->
       
       <div class="margin-contenido caja3">
         <ion-row>

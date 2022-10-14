@@ -12,6 +12,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
 //IMPORTADO PARA UTILIZACIÓN DE FORMULARIOS REACTIVOS.
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule
   ],
   declarations: [RegistroPage]
 })

@@ -1,6 +1,13 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+
+//CREACIÓN DE INTERFAZ. 
+interface Seleccion {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-registro',
@@ -8,12 +15,23 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+  
+   //CAPTURACIÓN DE DATOS DEL SELECT.
+   selectedValue: string;
+   //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
+   opciones: Seleccion[] = [
+     {value: 'conductor', viewValue: 'Conductor'},
+     {value: 'pasajero', viewValue: 'Pasajero'},
+     
+   ];
   //CAPTURACIÓN DE DATOS.
-
-  datos = {
+    
+   datos = {
 
     nombre: "",
     apellido: "",
+    rut: "",
+    usuario: "",
     email: "",
     contrasenia: "",
     confirmarContrasenia: ""
@@ -34,7 +52,7 @@ export class RegistroPage implements OnInit {
   getConfirmaContrasenia() {
     if (this.datos.contrasenia === this.datos.confirmarContrasenia) {
       contador : 1
-      console.log("Está entrando al metodo")
+      
       return 'Las contraseñas no coinciden';
       
       
@@ -43,6 +61,10 @@ export class RegistroPage implements OnInit {
   }
    //ALERTA
   async presentAlert() {
+    //LOCALSTORAGE
+    //GUARDADO DE DATOS DESDE EL OBJETOS DATOS, SE CONVIERTEN LOS DATOS EN TIPO STRING PARA SER ACEPTADOS COMO PARÁMETRO, PUEDEN SER OBSERVADOS DESDE EL NAVEGADOR.
+    localStorage.setItem('usuario', JSON.stringify(this.datos));
+
     const alert = await this.alertController.create({
       header: 'Registro Guardado',
       subHeader: '',
@@ -56,5 +78,6 @@ export class RegistroPage implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

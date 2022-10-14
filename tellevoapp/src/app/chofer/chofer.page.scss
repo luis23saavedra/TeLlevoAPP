@@ -48,11 +48,18 @@
 }
 //MARGEN GENERAL.
 .margin-contenido{
-  //margin-left: 30px;
   margin-top: 10px;
 }
 .margin-superior{
   margin-top: 70px;
+}
+.titulo{
+  font-size: large;
+  font-weight: 500;
+  font-style: italic;
+  color: rgb(0, 22, 250);
+  text-decoration-color: dotted;
+  margin-left: 200px;
 }
 .example-margin {
   margin: 0 40px;
