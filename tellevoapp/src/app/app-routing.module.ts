@@ -6,6 +6,8 @@ import { PasajeroPage } from './pasajero/pasajero.page';
 import { ChoferPage } from './chofer/chofer.page';
 import { RegistroPage } from './registro/registro.page';
 import { PerfilPage } from './perfil/perfil.page';
+import { NoLogueadoGuard } from './no-logueado.guard';
+
 
 const routes: Routes = [
   {
@@ -20,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate:[NoLogueadoGuard]
   },
   {
     path: '',
@@ -30,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
   },
   {
     path: '',
@@ -40,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'chofer',
-    loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule)
+    loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule),
   },
   {
     path: 'chofer',
@@ -65,6 +68,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   // {
   //   path: '',

@@ -52,7 +52,9 @@ export class LoginPage implements OnInit {
           user: this.datos 
         }
       };
-      //SI EL USUARIO SELECCIONA PROGRAMAR VIAJE, SE REDIRECCIONARÁ AL PAGE DE ARRIENDO
+      //GUARDADO DE BANDERA EN LOCALSTORAGE.
+      localStorage.setItem('login','true');
+      //REDIRECCIÓN A LOS PERFILES CORRESPONDIENTES A CADA USUARIO.
       if (datosUsuario.usuario === 'conductor'){
         //NAVEGACIÓN AL PERFIL CONDUCTOR.
         this.router.navigate(['/chofer'],navigationExtras); 
