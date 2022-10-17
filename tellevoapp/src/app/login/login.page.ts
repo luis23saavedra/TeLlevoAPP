@@ -60,7 +60,7 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/chofer'],navigationExtras); 
       // POR EL CONTRARIO SE REDIRECCIONA AL PAGE MOVILIZACIÓN  
       }else{
-        if (datosUsuario.rut === 'pasajero'){
+        if (datosUsuario.usuario === 'pasajero'){
         //NAVEGACIÓN AL PERFIL PASAJERO.
         this.router.navigate(['/pasajero'],navigationExtras);
         }

@@ -1,7 +1,10 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+
+import { DbService } from './../services/db.service';
+// import { ToastController } from '@ionic/angular';
+// import { Router } from "@angular/router";
 
 //CREACIÓN DE INTERFAZ. 
 interface Seleccion {
@@ -72,12 +75,21 @@ export class RegistroPage implements OnInit {
       buttons: ['OK'],
     });
 
-    await alert.present();
-  }
-  constructor(private alertController: AlertController) { }
+    // this.almacenarUsuario(this.datos.rut,this.datos.nombre,this.datos.apellido,this.datos.usuario,this.datos.email,this.datos.contrasenia,this.datos.confirmarContrasenia)
 
-  ngOnInit() {
+    await alert.present();
+
+    
   }
+  // almacenarUsuario(rut, nombre, apellido, tipo_usuario, correo_electrónico, contrasenia, confirmar_contrasenia){
+  //   this.dbservice.almacenarUsuario(rut, nombre, apellido, tipo_usuario, correo_electrónico, contrasenia, confirmar_contrasenia)
+  // }
+  constructor(private alertController: AlertController, private dbservice: DbService) { }
+ 
+  ngOnInit() {
+
+  
+   }
   
 
 }

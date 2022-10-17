@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { ApiService } from '../api.service';
+
+
+
 
 @Component({
   selector: 'app-perfil',
@@ -8,55 +12,18 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
-  //CAPTURACIÓN DE DATOS.
-
-  datos = {
-
-    nombre: "",
-    apellido: "",
-    email: "",
-    contrasenia: "",
-    confirmarContrasenia: ""
-  }
-  //********************************* VALIDACIONES ********************************* */
-  //VALIDACIÓN EMAIL.
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Debes ingresar tu correo electrónico';
-    }
-
-    return this.email.hasError('email') ? 'Correo electrónico inválido' : '';
-  }
-  //VALIDACIÓN CONTRASEÑA.
-  contador : number;
-  getConfirmaContrasenia() {
-    if (this.datos.contrasenia === this.datos.confirmarContrasenia) {
-      contador : 1
-      console.log("Está entrando al metodo")
-      return 'Las contraseñas no coinciden';
+ 
+  constructor(private alertController: AlertController, private data: ApiService) { }
+  
+  //CREACIÓN DE ARRAY.
+  usuarios = [];
+  
+  ngOnInit() { 
+    this.data.consultaDatos().subscribe((data) => {
+      this.usuarios = data,console.log(data)
       
-      
-    }
-
+    }) 
+    
   }
-   //ALERTA
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Registro Guardado',
-      subHeader: '',
-      message: 'Su registro ha sido guardado con éxito,redireccionando a iniciar sesión',
-      buttons: ['OK'],
-    });
+}  
 
-    await alert.present();
-  }
-
-  constructor(private alertController: AlertController) { }
-
-  ngOnInit() {
-  }
-
-}

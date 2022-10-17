@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 //IMPORTADO PARA UTILIZACIÓN DE FORMULARIOS REACTIVOS.
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     MatSelectModule
   ],
+  
   declarations: [RegistroPage]
 })
 export class RegistroPageModule {}

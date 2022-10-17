@@ -1,0 +1,88 @@
+.fondo{
+    --ion-background-color: white;
+  }
+  .letra{
+    --ion-text-color:black;
+  }
+  
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+  }
+  
+  ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: black !important;
+  }
+  
+  ::ng-deep.input {
+    /*change color of underline when focused*/
+    color: black !important;
+  }
+  //CAMBIO DE COLOR DE INPUT
+  ::ng-deep.mat-form-field-appearance-fill{
+    color: black;
+  }
+  .menu-style{
+    background-color:  white;
+  }
+  // MARGEN BOTON.  
+  .margenb{
+    margin-top: 20px;
+    margin-left: 33px;
+    width: 205px;
+    color: white;
+    background-color: rgb(0, 22, 75);
+  }
+  .margenb2{
+    margin-top: 20px;
+    margin-left: 33px;
+    width: 205px;
+    color: white;
+    background-color: red;
+  }
+  //MARGEN GENERAL.
+  .margin-contenido{
+    margin-top: 10px;
+  }
+  .margin-superior{
+    margin-top: 70px;
+  }
+  .titulo{
+    font-size: large;
+    font-weight: 500;
+    font-style: italic;
+    color: rgb(0, 22, 250);
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 22, 250);
+    margin-left: 200px;
+  }
+  .example-margin {
+    margin: 0 40px;
+  }
+  .caja3{
+    
+    position: relative;
+    animation: slidein 1.2s ;
+    animation-direction: reverse;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }  
+  
+  @keyframes slidein {
+    from {
+      margin-left: 10%;
+    }
+    to {
+      margin-right: 30%;
+    }
+  }
+  //CHECK-BOX.
+  .example-margin {
+    margin: 0 20px;
+  }

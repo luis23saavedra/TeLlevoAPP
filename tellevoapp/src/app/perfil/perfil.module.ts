@@ -16,6 +16,9 @@ import {MatDividerModule} from '@angular/material/divider';
 //IMPORTADO PARA UTILIZACIÓN DE FORMULARIOS REACTIVOS.
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatTableModule
   ],
   declarations: [PerfilPage]
 })

@@ -16,7 +16,6 @@ export class NoLogueadoGuard implements CanActivate {
       if(localStorage.getItem('login')){
         
         let navigationExtras: NavigationExtras = {};
-        this.router.navigate(['/chofer'],navigationExtras);
         //OBTENCIÓN DE LOS DATOS ALMACENADOS EN LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
         var datosUsuario = JSON.parse(localStorage.getItem('usuario'));
         //REDIRECCIÓN A LOS PERFILES CORRESPONDIENTES A CADA USUARIO.
