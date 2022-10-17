@@ -8,6 +8,7 @@ import { RegistroPage } from './registro/registro.page';
 import { PerfilPage } from './perfil/perfil.page';
 import { NoLogueadoGuard } from './no-logueado.guard';
 import { RegpasajeroPage } from './regpasajero/regpasajero.page';
+import { RestablecerContraseniaPage } from './restablecer-contrasenia/restablecer-contrasenia.page';
 
 
 const routes: Routes = [
@@ -97,15 +98,15 @@ const routes: Routes = [
   //   pathMatch: 'full',
   //   component: PerfilPage
   // },
-  // {
-  //   path: 'restablecer-contrasenia',
-  //   loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
-  // },
-  // {
-  //   path: '',
-  //   redirectTo: 'restablecer-contrasenia',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: 'restablecer-contrasenia',
+    loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    component: RestablecerContraseniaPage
+  },
   
 
   

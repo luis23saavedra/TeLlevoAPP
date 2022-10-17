@@ -3,11 +3,10 @@ import {FormControl, Validators} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 
 import { DbService } from './../services/db.service';
-// import { ToastController } from '@ionic/angular';
-// import { Router } from "@angular/router";
+
 
 //CREACIÓN DE INTERFAZ. 
-interface Seleccion {
+interface Ruta {
   value: string;
   viewValue: string;
 }
@@ -18,15 +17,16 @@ interface Seleccion {
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  
-   //CAPTURACIÓN DE DATOS DEL SELECT.
-   selectedValue: string;
-   //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
-   opciones: Seleccion[] = [
-     {value: 'conductor', viewValue: 'Conductor'},
-     {value: 'pasajero', viewValue: 'Pasajero'},
-     
-   ];
+ 
+    //CAPTURACIÓN DE DATOS DEL SELECT.
+  selectedRuta: string;
+  //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
+  opcionesRuta: Ruta[] = [
+    {value: 'norte', viewValue: 'Norte'},
+    {value: 'oriente', viewValue: 'Oriente'},
+    {value: 'poniente', viewValue: 'Poniente'},
+    {value: 'sur', viewValue: 'Sur'},
+  ];
   //CAPTURACIÓN DE DATOS.
     
    datos = {
@@ -34,8 +34,11 @@ export class RegistroPage implements OnInit {
     nombre: "",
     apellido: "",
     rut: "",
-    usuario: "",
+    usuario: "conductor",
     email: "",
+    ruta: "",
+    patente: "",
+    modelo: "",
     contrasenia: "",
     confirmarContrasenia: ""
   }

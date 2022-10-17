@@ -73,28 +73,6 @@
           </ion-col>  
       </ion-row>
     </div>
-
-    <div class="margin-contenido caja3">
-      <ion-row>
-        <ion-col size="12">
-          Tipo Usuario
-        </ion-col>
-        <ion-col size="12">  
-          <mat-form-field appearance="fill">
-            <mat-select [(ngModel)]="selectedValue" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.usuario" required>
-              <mat-option *ngFor="let select of opciones"  [value]="select.value"  required>
-                {{select.viewValue}}
-              </mat-option>
-            </mat-select>
-            <!-- VALIDACIONES -->
-            <mat-error *ngIf="select.errors?.['required']">
-              Debes ingresar tu usuario.
-            </mat-error>
-            <!-- VALIDACIONES -->
-          </mat-form-field>
-        </ion-col>
-      </ion-row>
-    </div>
     
     <div class="margin-contenido letra">
       <ion-row >
@@ -114,6 +92,73 @@
           </ion-col>  
       </ion-row>
     </div>
+
+    <div class="margin-contenido caja3">
+      <ion-row>
+        <ion-col size="12">
+          Selecciona tu sector
+        </ion-col>
+        <ion-col size="12">  
+          <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="selectedRuta" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.ruta" required>
+              <mat-option *ngFor="let select of opcionesRuta"  [value]="select.value"  required>
+                {{select.viewValue}}
+              </mat-option>
+            </mat-select>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="select.errors?.['required']">
+              Debes ingresar tu sector.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="margin-contenido letra caja3">
+      <ion-row >
+        <ion-col size="12">
+          Patente
+        </ion-col>
+        <ion-col>
+          <mat-form-field appearance="fill" class="letra" >
+            <input matInput placeholder="Ingresa tu patente" name="patente" type="text" minlength=6 maxlength=6 class="letra" [(ngModel)]="datos.patente" #patente="ngModel"  required>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="patente.errors?.['required']">
+              Debes ingresar tu patente.
+            </mat-error>
+            
+            <mat-error *ngIf="patente.errors?.['minlength']">
+              Debes ingresar al menos 6 carácteres.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+    </div>
+    
+    <div class="margin-contenido caja3">
+      <ion-row>
+        <ion-col size="12">
+          Modelo vehículo
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="fill" class="letra" >
+            <input matInput placeholder="Ingresas modelo vehículo" name="modelo" type="text" minlength=3 maxlength=10 class="letra" [(ngModel)]="datos.modelo" #modelo="ngModel" required>
+            <!-- VALIDACIONES -->
+            <mat-error *ngIf="modelo.errors?.['required']">
+              Debes ingresar el modelo del vehículo.
+            </mat-error>
+            
+            <mat-error *ngIf="modelo.errors?.['minlength']">
+              Debes ingresar al menos 3 carácteres.
+            </mat-error>
+            <!-- VALIDACIONES -->
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+        
+    </div> 
 
     <div class="margin-contenido letra">
       <ion-row >

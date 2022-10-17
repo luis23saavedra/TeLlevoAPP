@@ -2,7 +2,7 @@
 
   <form action="" #formulario="ngForm" (ngSubmit)="guardarDatos()">
     
-    <div class="margin-superior letra ">
+    <div class="margin-superior caja3 letra ">
       <ion-row >
           <ion-col size="12">
             Nombre
@@ -26,7 +26,7 @@
       </ion-row>
     </div>
     
-    <div class="margin-contenido letra">
+    <div class="margin-contenido caja3 letra">
       <ion-row >
           <ion-col size="12">
             Apellido
@@ -50,7 +50,7 @@
       </ion-row>
     </div>
 
-    <div class="margin-rut letra ">
+    <div class="margin-contenido caja3 letra ">
       <ion-row >
           <ion-col size="12">
             Rut
@@ -77,18 +77,18 @@
     <div class="margin-contenido caja3">
       <ion-row>
         <ion-col size="12">
-          Tipo Usuario
+          Selecciona tu sector
         </ion-col>
         <ion-col size="12">  
           <mat-form-field appearance="fill">
-            <mat-select [(ngModel)]="selectedValue" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.usuario" required>
-              <mat-option *ngFor="let select of opciones"  [value]="select.value"  required>
+            <mat-select [(ngModel)]="selectedRuta" name="select" placeholder="Seleccione una opción" #select="ngModel" [(ngModel)]="datos.ruta" required>
+              <mat-option *ngFor="let select of opcionesRuta"  [value]="select.value"  required>
                 {{select.viewValue}}
               </mat-option>
             </mat-select>
             <!-- VALIDACIONES -->
             <mat-error *ngIf="select.errors?.['required']">
-              Debes ingresar tu usuario.
+              Debes ingresar tu sector.
             </mat-error>
             <!-- VALIDACIONES -->
           </mat-form-field>
@@ -96,7 +96,7 @@
       </ion-row>
     </div>
     
-    <div class="margin-contenido letra">
+    <div class="margin-contenido caja3 letra">
       <ion-row >
           <ion-col size="12">
             Correo Electrónico
@@ -115,7 +115,7 @@
       </ion-row>
     </div>
 
-    <div class="margin-contenido letra">
+    <div class="margin-contenido caja3 letra">
       <ion-row >
           <ion-col size="12">
             Contraseña
@@ -139,7 +139,7 @@
       </ion-row>
     </div>
 
-    <div class="margin-contenido letra">
+    <div class="margin-contenido caja3 letra">
       <ion-row >
           <ion-col size="12">
             Confirmar Contraseña
