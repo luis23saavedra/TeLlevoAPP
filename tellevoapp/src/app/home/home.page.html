@@ -11,7 +11,16 @@
       <ion-row class="margin-fondo">
         <ion-col align-self-center>
           <h2 class="margin-titulo">Bienvenido</h2>
-          <ion-button [routerLink]="['/registro']" expand="block" type="submit" color="primary" class="boton">Registro usuario</ion-button>
+          <!-- <button mat-raised-button (click)="openDialog('3000ms', '1500ms')">Open dialog slowly</button>
+          <h1 mat-dialog-title>Delete file</h1>
+          <div mat-dialog-content>
+            Would you like to delete cat.jpeg?
+          </div>
+          <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>No</button>
+            <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+          </div> -->
+          <ion-button (click)="openDialog('3000ms', '1500ms')" expand="block" type="submit" color="primary" class="boton">Registro usuario</ion-button>
           <ion-row class="margin-subtitulo">
             <h4 >Si ya eres usuario</h4>
           </ion-row >

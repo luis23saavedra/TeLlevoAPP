@@ -1,0 +1,10 @@
+
+<button mat-raised-button (click)="openDialog('3000ms', '1500ms')"></button>
+          <h1 mat-dialog-title>Registro</h1>
+          <div mat-dialog-content>
+            Selecciona tu tipo de usuario.
+          </div>
+          <div mat-dialog-actions>
+            <button mat-flat-button mat-dialog-close [routerLink]="['/registro']" class="margenb">Conductor</button><br>
+            <button mat-flat-button mat-dialog-close [routerLink]="['/regpasajero']" class="margenb">Pasajero</button>
+          </div>

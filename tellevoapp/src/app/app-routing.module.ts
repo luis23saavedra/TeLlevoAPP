@@ -87,6 +87,10 @@ const routes: Routes = [
     pathMatch: 'full',
     component: RegpasajeroPage
   },
+  {
+    path: 'dialog-reg',
+    loadChildren: () => import('./dialog-reg/dialog-reg.module').then( m => m.DialogRegPageModule)
+  },
   
   // {
   //   path: '',

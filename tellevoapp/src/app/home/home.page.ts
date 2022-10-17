@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogRegPage } from '../dialog-reg/dialog-reg.page';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogRegPage, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 
 }
