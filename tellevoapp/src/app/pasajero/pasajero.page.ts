@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-
+//GEOLOCALIZACION Y GOOGLE MAPS
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+// import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native';
 
-//CREACIÓN DE INTERFAZ. 
+//CREACIÓN DE INTERFAZ.
+
 interface Seleccion {
   value: string;
   viewValue: string;
@@ -49,22 +51,8 @@ export class PasajeroPage implements OnInit {
     });
 
   }
-
+ 
   ngOnInit() {
-  }
-
-  
-  redirecionPage(){
-    // // console.log(this.datos)
-    // let navigationExtras: NavigationExtras = {
-    //   state: {
-    //     //ASIGNACIÓN DE OBJETO CON CLAVE Y VALOR AL ESTADO.
-    //     user: this.datos 
-    //   }
-    // };
-
-    this.redirecionPage()
-    
   }
   //POSISIONAMIENTO DEL CHECK BOX
   labelPosition: 'before' | 'after' = 'after';
@@ -88,5 +76,38 @@ export class PasajeroPage implements OnInit {
     // data.coords.longitude
     });
   }
+  // @ViewChild('map') mapView: ElementRef;
+  // CUANDO ELCICLO DE VIDA DEL PAGE ENTRE A SU FINALIZACIÓN
+  // ionViewDidEnter() {
+  //   this.createMap();
+  // }
+  //CREACIÓN MAPA.
+  // createMap() {
+  //   const boundingRect = this.mapView.nativeElement.getBoundingClientRect() as DOMRect;
+
+  //   CapacitorGoogleMaps.create({
+  //     width: Math.round(boundingRect.width),
+  //     height: Math.round(boundingRect.height),
+  //     x: Math.round(boundingRect.x),
+  //     y: Math.round(boundingRect.y),
+  //     zoom: 5
+  //   });
+
+//   CapacitorGoogleMaps.addListener('onMapReady', async () => {
+//     CapacitorGoogleMaps.setMapType({
+//       type: "normal" // hybrid, satellite, terrain
+//     });
+
+//     this.showCurrentPosition();
+//   });
+// }
+
+// async showCurrentPosition() {
+//   // todo
+// }
+//CUANDO EL CICLO DE VIDA DEL PAGE FINALIZA.
+// ionViewDidLeave() {
+//   CapacitorGoogleMaps.close();
+// }
 
 }

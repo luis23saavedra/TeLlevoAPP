@@ -13,7 +13,7 @@ import { ApiService } from '../api.service';
 })
 export class PerfilPage implements OnInit {
  
-  constructor(private alertController: AlertController, private data: ApiService) { }
+  constructor( private data: ApiService) { }
   
   //CREACIÓN DE ARRAY.
   usuarios = [];

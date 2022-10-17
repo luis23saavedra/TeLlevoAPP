@@ -93,11 +93,7 @@ const routes: Routes = [
     loadChildren: () => import('./dialog-reg/dialog-reg.module').then( m => m.DialogRegPageModule)
   },
   
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   component: PerfilPage
-  // },
+  
   {
     path: 'restablecer-contrasenia',
     loadChildren: () => import('./restablecer-contrasenia/restablecer-contrasenia.module').then( m => m.RestablecerContraseniaPageModule)
