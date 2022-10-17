@@ -15,7 +15,7 @@
           </ion-col>
           <ion-col size="12">
               <mat-radio-group name="labelPosition" [(ngModel)]="labelPosition">
-                <mat-radio-button class="example-margin"  value="after">Si</mat-radio-button>
+                <mat-radio-button class="example-margin"  value="after" (clic)="geolocalizacion()">Si</mat-radio-button>
                 <mat-radio-button class="example-margin" value="before">No</mat-radio-button>
               </mat-radio-group>
           </ion-col>  
@@ -58,7 +58,7 @@
 
     <ion-row>
       <div class="example-button-row">
-        <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="redirecionPage()">Solicitar Viaje</button>
+        <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>
       </div> 
     </ion-row>
 

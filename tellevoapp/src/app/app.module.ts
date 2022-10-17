@@ -18,6 +18,8 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
 
 
 
@@ -29,7 +31,7 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
     HttpClientModule,
     
   ],
-  providers: [SQLite, SQLitePorter,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

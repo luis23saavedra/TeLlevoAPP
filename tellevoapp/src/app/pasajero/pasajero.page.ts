@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
 //CREACIÓN DE INTERFAZ. 
 interface Seleccion {
   value: string;
@@ -34,7 +36,7 @@ export class PasajeroPage implements OnInit {
   //CREACIÓN DE VARIABLE TIPO ANY, PERMITE CUALQUIER VALOR SE UTILIZARÁ PARA CAPTURAR LOS DATOS DESDE EL PAGE LOGIN.
   data: any; 
   
-  constructor(private router: Router, private activeroute: ActivatedRoute) { 
+  constructor(private router: Router, private activeroute: ActivatedRoute, private geo: Geolocation) { 
 
     // LLAMADO A LA RUTA ACTIVA
     this.activeroute.queryParams.subscribe(params => { 
@@ -53,18 +55,38 @@ export class PasajeroPage implements OnInit {
 
   
   redirecionPage(){
-    console.log(this.datos)
-    let navigationExtras: NavigationExtras = {
-      state: {
-        //ASIGNACIÓN DE OBJETO CON CLAVE Y VALOR AL ESTADO.
-        user: this.datos 
-      }
-    };
+    // // console.log(this.datos)
+    // let navigationExtras: NavigationExtras = {
+    //   state: {
+    //     //ASIGNACIÓN DE OBJETO CON CLAVE Y VALOR AL ESTADO.
+    //     user: this.datos 
+    //   }
+    // };
+
+    this.redirecionPage()
     
   }
   //POSISIONAMIENTO DEL CHECK BOX
   labelPosition: 'before' | 'after' = 'after';
   //SE ESCONDE LA EXPANSIÓN DEL PANEL POR DEFECTO.
   panelOpenState = false;
+  //GEOLOZALIZACIÓN PASAJERO.
+  geolocalizacion(){
+
+    this.geo.getCurrentPosition().then((resp) =>{
+      // resp.coords.latitude
+      // resp.coords.longitude
+      console.log("localizacion: ", resp)
+    }).catch((error) =>{
+      console.log("Error al obtener la localizacion", error)
+    });
+
+    let watch = this.geo.watchPosition();
+    watch.subscribe((data) => {
+    // data can be a set of coordinates, or an error (if an error occurred).
+    // data.coords.latitude
+    // data.coords.longitude
+    });
+  }
 
 }
