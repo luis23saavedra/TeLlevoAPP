@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 
 import { DbService } from './../services/db.service';
 
-
 //CREACIÓN DE INTERFAZ. 
 interface Ruta {
   value: string;
@@ -31,9 +30,9 @@ export class RegistroPage implements OnInit {
     
    datos = {
 
-    nombre: "",
-    apellido: "",
     rut: "",
+    apellido: "",
+    nombre: "",
     usuario: "conductor",
     email: "",
     ruta: "",
@@ -42,6 +41,8 @@ export class RegistroPage implements OnInit {
     contrasenia: "",
     confirmarContrasenia: ""
   }
+  
+  constructor(private alertController: AlertController, private database: DbService) { }
   //********************************* VALIDACIONES ********************************* */
   //VALIDACIÓN EMAIL.
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -70,6 +71,12 @@ export class RegistroPage implements OnInit {
     //LOCALSTORAGE
     //GUARDADO DE DATOS DESDE EL OBJETOS DATOS, SE CONVIERTEN LOS DATOS EN TIPO STRING PARA SER ACEPTADOS COMO PARÁMETRO, PUEDEN SER OBSERVADOS DESDE EL NAVEGADOR.
     localStorage.setItem('usuario', JSON.stringify(this.datos));
+    //LLAMADO AL MÉTODO INSERTAR DE LA VARIABLE INYECTADA EN EL CONSTRUCTOR, RECIBE POR PARÁMETRO EL NOMBRE DE LA COLECCIÓN Y LOS DATOS A ALMACENAR.
+    this.database.insertar(this.datos.usuario, this.datos).then(() => {
+      console.log('registro guardado!');
+    },(error) => {
+      console.log(error)
+    });
 
     const alert = await this.alertController.create({
       header: 'Registro Guardado',
@@ -84,15 +91,7 @@ export class RegistroPage implements OnInit {
 
     
   }
-  // almacenarUsuario(rut, nombre, apellido, tipo_usuario, correo_electrónico, contrasenia, confirmar_contrasenia){
-  //   this.dbservice.almacenarUsuario(rut, nombre, apellido, tipo_usuario, correo_electrónico, contrasenia, confirmar_contrasenia)
-  // }
-  constructor(private alertController: AlertController, private dbservice: DbService) { }
  
-  ngOnInit() {
-
-  
-   }
-  
+  ngOnInit() {}
 
 }

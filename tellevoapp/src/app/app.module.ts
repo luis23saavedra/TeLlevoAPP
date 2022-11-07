@@ -8,17 +8,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatIconModule} from '@angular/material/icon';
-// import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
-import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
+import { AngularFireModule } from '@angular/fire/compat';
+
+import { environment } from 'src/environments/environment';
+
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 
 
 
@@ -29,6 +30,8 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     MatMenuModule,
     MatIconModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
     
   ],
   providers: [Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
