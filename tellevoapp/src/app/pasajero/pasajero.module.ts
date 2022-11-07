@@ -20,6 +20,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 
 
@@ -39,6 +40,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatCheckboxModule,
     MatRadioModule,
     MatExpansionModule,
+    MatMenuModule,
     MatIconModule
   ],
   declarations: [PasajeroPage]

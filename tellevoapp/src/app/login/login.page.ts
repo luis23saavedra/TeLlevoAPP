@@ -34,6 +34,10 @@ export class LoginPage implements OnInit {
     usuario: "",
     
   }
+  //BANDERA LOGIN LOCALSTORAGE.
+  bandera = {
+    logueado: "true"
+  }
   //CREACIÓN DE LA INSTANCIA ROUTER PARA REDIRECCIONAR A LOS PAGES.
   constructor(private router: Router, private alertController: AlertController) { }
 
@@ -53,7 +57,8 @@ export class LoginPage implements OnInit {
         }
       };
       //GUARDADO DE BANDERA EN LOCALSTORAGE.
-      localStorage.setItem('login','true');
+      localStorage.setItem('login', JSON.stringify(this.bandera));
+      // localStorage.setItem('login','true');
       //REDIRECCIÓN A LOS PERFILES CORRESPONDIENTES A CADA USUARIO.
       if (datosUsuario.usuario === 'conductor'){
         //NAVEGACIÓN AL PERFIL CONDUCTOR.

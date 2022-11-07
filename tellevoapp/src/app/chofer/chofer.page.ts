@@ -47,9 +47,25 @@ export class ChoferPage implements OnInit {
 
   //POSISIONAMIENTO DEL CHECK BOX
   labelPosition: 'before' | 'after' = 'after';
+
+   //OBTENCIÓN DE LOS DATOS DEL USUARIO.
+   nombreUsuario = JSON.parse(localStorage.getItem('usuario'));
+   //ASIGNACIÓN DEL NOMBRE DEL USUSARIO A LA VARIABLE.
+   conductor = ' ' + this.nombreUsuario.nombre + ' ' + this.nombreUsuario.apellido
+  //FUNCIÓN QUE PERMITIRÁ REALIZAR EL LOGOUT AL USUARIO REDIRECCIONÁNDOLO AL LOGIN.
+   salirPagina(){
+
+    //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
+    var datosLogin = JSON.parse(localStorage.getItem('login'));
+    //ASIGNACIÓN DE VALOR FALSE A LA BANDERA DE LOCALSTORAGE
+    datosLogin.logueado = 'false'
+    //SE SOBREESCRIBE EL VALOR DE LA BANDERA PARA EJECUCIÓN DE LOG OUT.
+    localStorage.setItem('login', JSON.stringify(datosLogin));
+    //REDIRECCIÓN AL PAGE LOGIN.  
+    this.router.navigate(['/login']); 
+  }
   ngOnInit() {
   }
 
-  
 
 }
