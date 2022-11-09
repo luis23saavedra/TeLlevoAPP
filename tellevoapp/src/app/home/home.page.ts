@@ -6,6 +6,8 @@ import { ApiService } from '../api.service';
 
 import { DbService } from './../services/db.service';
 
+import { GoogleAuthProvider } from "firebase/auth";
+
 
 @Component({
   selector: 'app-home',
@@ -33,10 +35,13 @@ export class HomePage implements OnInit{
     });
   }
   //**********DIALOG ANIMATION**********/ 
+  //**********AUTENTICACIÓN FIREBASE GOOGLE */
+  provider = new GoogleAuthProvider();
+  //**********AUTENTICACIÓN FIREBASE GOOGLE */
   ngOnInit(){
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
     // this.data.registroConductor().subscribe((data) => {
-    //   this.database.insertar("conductor1", data).then(() => {
+    //   this.database.insertar("conductor", data).then(() => {
     //     console.log('registro guardado!');
     //   },(error) => {
     //     console.log(error)
