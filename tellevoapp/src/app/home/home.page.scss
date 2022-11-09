@@ -32,7 +32,9 @@
 .margin-superior{
   margin-top: 32px;
 }
-
+// .margin-contenido{
+//   margin-left: 20px;
+// } 
 
 .margin-titulo{
   margin-left: 75px;
@@ -53,8 +55,8 @@
   
 }
 .margenb{
-  // margin-top: 10px;
-  margin-left: 33px;
+  margin-top: 10px;
+  margin-left: 50px;
   width: 205px;
   color: white;
   background-color:  rgb(0, 22, 75);
@@ -83,7 +85,7 @@
 
 @keyframes slidein {
   from {
-    margin-left: 10%;
+    margin-left: 15%;
   }
   to {
     margin-right: 30%;
