@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 
 import { DbService } from './../services/db.service';
 
-import { GoogleAuthProvider } from "firebase/auth";
+import {getAuth, GoogleAuthProvider } from "firebase/auth";
 
 
 @Component({
