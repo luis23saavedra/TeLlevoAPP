@@ -1,22 +1,56 @@
-import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import { DialogRegPage } from '../dialog-reg/dialog-reg.page';
+
+import { ApiService } from '../api.service';
+
+import { DbService } from './../services/db.service';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-  constructor(public dialog: MatDialog) {}
-
+    //**********CAPTURA DE DATOS.**********
+      
+     datos = {
+  
+      email: ""
+      
+    }
+    //**********CAPTURA DE DATOS.**********
+  constructor(public dialog: MatDialog, private data: ApiService, private database: DbService) {}
+  
+  //**********DIALOG ANIMATION**********/  
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DialogRegPage, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
+  }
+  //**********DIALOG ANIMATION**********/ 
+  ngOnInit(){
+    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+    // this.data.registroConductor().subscribe((data) => {
+    //   this.database.insertar("conductor1", data).then(() => {
+    //     console.log('registro guardado!');
+    //   },(error) => {
+    //     console.log(error)
+    //   });
+    // })
+    
+    // this.data.registroPasajero().subscribe((data) => {
+    //   this.database.insertar("pasajero", data).then(() => {
+    //     console.log('registro guardado!');
+    //   },(error) => {
+    //     console.log(error)
+    //   });
+    // })
+    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
   }
 
 }

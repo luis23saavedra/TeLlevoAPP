@@ -1,34 +1,54 @@
-    
-  <ion-content class="fondo ">
-    <ion-text class="" color="sucess">
-      <div class="margin-superior fondo ">
-      
-      <img src="logoapp" src="../../assets/Tellevoapp.png">
-      <ion-progress-bar type="indeterminante" reversed="true"></ion-progress-bar>
-      </div>
-    </ion-text>
-    <ion-grid class=" fondo">
-      <ion-row class="margin-fondo">
-        <ion-col align-self-center>
-          <h2 class="margin-titulo">Bienvenido</h2>
-          <!-- <button mat-raised-button (click)="openDialog('3000ms', '1500ms')">Open dialog slowly</button>
-          <h1 mat-dialog-title>Delete file</h1>
-          <div mat-dialog-content>
-            Would you like to delete cat.jpeg?
-          </div>
-          <div mat-dialog-actions>
-            <button mat-button mat-dialog-close>No</button>
-            <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
-          </div> -->
-          <ion-button (click)="openDialog('3000ms', '1500ms')" expand="block" type="submit" color="primary" class="boton">Registro usuario</ion-button>
-          <ion-row class="margin-subtitulo">
-            <h4 >Si ya eres usuario</h4>
-          </ion-row >
-          <ion-button [routerLink]="['/login']" expand="block" color="primary" class="boton">Ingresar</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
-  
+<ion-content class="fondo letra ">
 
+  <form action="" #formulario="ngForm" (ngSubmit)="guardarDatos()">
+    
+    
+    
+    
+      <ion-text class="" color="sucess">
+        <div class="margin-superior fondo ">
+        
+        <img src="logoapp" src="../../assets/Tellevoapp.png">
   
+        <ion-progress-bar type="indeterminante" reversed="true"></ion-progress-bar>
+        </div>
+      </ion-text>
+    
+
+    <div class="margin-contenido letra caja3">
+      <ion-row >
+          <ion-col size="12" class="titulo">
+            Correo Institucional
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field appearance="fill" class="letra " >
+              <input matInput placeholder="ejemplo@duocuc.cl" name="email" type="email" #email="ngModel" pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[duocuc]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" class="letra" [(ngModel)]="datos.email" required>
+              <!-- VALIDACIONES -->
+              <mat-error *ngIf="email.errors?.['required']">
+                Debes ingresar tu email institucional.
+              </mat-error>
+              <mat-error *ngIf="email.errors?.['pattern']">
+                Correo electrónico inválido.
+              </mat-error>
+              <!-- VALIDACIONES -->
+            </mat-form-field>
+          </ion-col>  
+      </ion-row>
+    </div>
+
+    <mat-divider ></mat-divider>
+
+    <ion-row>
+      <div>
+        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="margenb"  (click)="openDialog('3000ms', '1500ms')">Ingresar</button>
+      </div> 
+    </ion-row>
+
+  </form>
+
+  <ion-footer class="footer">
+    <p>Desarrollado por:</p>
+    <p>Salomón Meza - Adán Yáñez - Luis Saavedra</p>
+  </ion-footer>
+
+</ion-content>

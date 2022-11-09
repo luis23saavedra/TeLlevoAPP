@@ -1,0 +1,44 @@
+{
+    "conductor": [
+      {
+        "rut": "11111111-1",
+        "nombre": "Pedro Santiago",
+        "apellido": "Ramirez Astorga",
+        "usuario": "Conductor",
+        "patente": "hx-ad-15",
+        "email": "pedro.san@duocuc.cl"
+      },
+     {
+        "rut": "22222222-2",
+        "nombre": "Salomon Antonio",
+        "apellido": "Meza Guzman",
+        "usuario": "Conductor",
+        "patente": "hx-ad-15",
+        "email": "sa.meza@duocuc.cl"
+     },
+     {
+        "rut": "33333333-3",
+        "nombre": "Amanda Antonia",
+        "apellido": "Rubilar Linconao",
+        "usuario": "Conductor",
+        "patente": "fy-ag-10",
+        "email": "amanda.ru@duocuc.cl"
+      },
+      {
+        "rut": "44444444-4",
+        "nombre": "Cristina Javiera",
+        "apellido": "Mendoza Sanchez",
+        "usuario": "Conductor",
+        "patente": "jf-kl-78",
+        "email": "cristina.me@duocuc.cl"
+      },
+      {
+        "rut": "55555555-5",
+        "nombre": "Eloisa Matilde",
+        "apellido": "Ramirez Castro",
+        "usuario": "Conductor",
+        "patente": "ag-co-89",
+        "email": "eloisa.ra@duocuc.cl"
+      }
+    ]
+  }

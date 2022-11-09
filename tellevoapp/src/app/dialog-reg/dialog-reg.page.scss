@@ -1,9 +1,20 @@
 .margenb{
     margin-top: 10px;
-    margin-left: 45px;
-    width: 100px;
+    margin-left: 15px;
+    width: 150px;
     height: 20px;
     color: white;
     background-color:  rgb(0, 22, 75);
     
+}
+.titulo{
+    text-align: center;
+    font-style: oblique;
+    font-weight: 550;
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.mensaje{
+    text-align: center;
+    font-size: medium;
 }

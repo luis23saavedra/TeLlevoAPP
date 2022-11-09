@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { $ } from 'protractor';
-// import { Address, Company, Usuarios } from './interfaces/interfaces';
 
 import { Observable } from 'rxjs';
 import { map, retry } from 'rxjs/operators';
+
+
+
 //CREACIÓN DE INTERFAZ PARA ASIGNAR EL TIPO DE DATO DE LA INFORMACIÓN OBTENIDA EN API REST. 
 export interface Usuarios {
   id:       number;
@@ -23,11 +24,24 @@ export class ApiService {
 
 
   constructor( private http: HttpClient) { }
-  //OBSERVABLE
+  //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
   consultaDatos():Observable<Usuarios[]>{
-    //OBTENCIÓN DE DATOS DESDE API REST.
+    
     return this.http.get<any>('https://jsonplaceholder.typicode.com/users' ).pipe(retry(3))
   }
+  //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
+  //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
+  registroConductor(): Observable<any>{
 
+    return this.http.get<any>('assets/json/conductor.json' ).pipe(retry(3))
+
+  }
+
+  registroPasajero(): Observable<any>{
+
+    return this.http.get<any>('assets/json/pasajero.json' ).pipe(retry(3))
+
+  }
+  //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
   
 }
