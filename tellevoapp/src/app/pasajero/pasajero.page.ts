@@ -65,7 +65,7 @@ export class PasajeroPage implements OnInit {
     //SE SOBREESCRIBE EL VALOR DE LA BANDERA PARA EJECUCIÓN DE LOG OUT.
     localStorage.setItem('login', JSON.stringify(datosLogin));
     //REDIRECCIÓN AL PAGE LOGIN.  
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }  
   ngOnInit() {
   }
