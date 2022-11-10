@@ -14,7 +14,9 @@ import { RestablecerContraseniaPage } from './restablecer-contrasenia/restablece
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate:[NoLogueadoGuard]
+
   },
   {
     path: '',
@@ -46,6 +48,7 @@ const routes: Routes = [
   {
     path: 'chofer',
     loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule),
+    // canActivate:[NoLogueadoGuard]
   },
   {
     path: 'chofer',
@@ -60,7 +63,9 @@ const routes: Routes = [
   },
   {
     path: 'pasajero',
-    loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+    loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule),
+    // canActivate:[NoLogueadoGuard]
+
   },
   {
     path: '',

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 //CREACIÓN DE INTERFAZ. 
-interface Seleccion {
-  value: string;
-  viewValue: string;
-}
+// interface Seleccion {
+//   value: string;
+//   viewValue: string;
+// }
 
 @Component({
   selector: 'app-chofer',
@@ -14,23 +14,30 @@ interface Seleccion {
 })
 export class ChoferPage implements OnInit {
 
-  //INICIALIZACIÓN DE OBJETO PARA CAPTURAR LOS DATOS INGRESADOS DEL USUARIO.
+  //**********CAPTURA DE DATOS.**********
   datos = {
 
     ruta: "",
     
   }
+  //**********CAPTURA DE DATOS.**********
   //CAPTURACIÓN DE DATOS DEL SELECT.
-  selectedValue: string;
-  //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
-  opciones: Seleccion[] = [
-    {value: 'norte', viewValue: 'Norte'},
-    {value: 'oriente', viewValue: 'Oriente'},
-    {value: 'poniente', viewValue: 'Poniente'},
-    {value: 'sur', viewValue: 'Sur'},
-  ];
+  // selectedValue: string;
+  // //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
+  // opciones: Seleccion[] = [
+  //   {value: 'norte', viewValue: 'Norte'},
+  //   {value: 'oriente', viewValue: 'Oriente'},
+  //   {value: 'poniente', viewValue: 'Poniente'},
+  //   {value: 'sur', viewValue: 'Sur'},
+  // ];
 
-  data: any; 
+  data: any;
+  
+  //**********BANDERA LOGIN LOCALSTORAGE.**********
+  bandera = {
+    logueado: "true"
+  }
+  //**********BANDERA LOGIN LOCALSTORAGE.**********
 
   constructor(private router: Router, private activeroute: ActivatedRoute) { 
 
@@ -48,12 +55,13 @@ export class ChoferPage implements OnInit {
   //POSISIONAMIENTO DEL CHECK BOX
   labelPosition: 'before' | 'after' = 'after';
 
-   //OBTENCIÓN DE LOS DATOS DEL USUARIO.
-   nombreUsuario = JSON.parse(localStorage.getItem('usuario'));
-   //ASIGNACIÓN DEL NOMBRE DEL USUSARIO A LA VARIABLE.
-   conductor = ' ' + this.nombreUsuario.nombre + ' ' + this.nombreUsuario.apellido
+  //  //OBTENCIÓN DE LOS DATOS DEL USUARIO.
+  //  nombreUsuario = JSON.parse(localStorage.getItem('usuario'));
+  //  //ASIGNACIÓN DEL NOMBRE DEL USUSARIO A LA VARIABLE.
+  //  conductor = ' ' + this.nombreUsuario.nombre + ' ' + this.nombreUsuario.apellido
   //FUNCIÓN QUE PERMITIRÁ REALIZAR EL LOGOUT AL USUARIO REDIRECCIONÁNDOLO AL LOGIN.
-   salirPagina(){
+  //**********FUNCIÓN LOGOUT.**********.
+  salirPagina(){
 
     //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
     var datosLogin = JSON.parse(localStorage.getItem('login'));
@@ -62,9 +70,23 @@ export class ChoferPage implements OnInit {
     //SE SOBREESCRIBE EL VALOR DE LA BANDERA PARA EJECUCIÓN DE LOG OUT.
     localStorage.setItem('login', JSON.stringify(datosLogin));
     //REDIRECCIÓN AL PAGE LOGIN.  
-    this.router.navigate(['/home']); 
+    this.router.navigate(['/home']);
   }
+  //**********FUNCIÓN LOGOUT.**********.
+  //  salirPagina(){
+
+  //   //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
+  //   var datosLogin = JSON.parse(localStorage.getItem('login'));
+  //   //ASIGNACIÓN DE VALOR FALSE A LA BANDERA DE LOCALSTORAGE
+  //   datosLogin.logueado = 'false'
+  //   //SE SOBREESCRIBE EL VALOR DE LA BANDERA PARA EJECUCIÓN DE LOG OUT.
+  //   localStorage.setItem('login', JSON.stringify(datosLogin));
+  //   //REDIRECCIÓN AL PAGE LOGIN.  
+  //   this.router.navigate(['/home']); 
+  // }
   ngOnInit() {
+    //GUARDADO DE BANDERA EN LOCALSTORAGE.
+    localStorage.setItem('login', JSON.stringify(this.bandera));
   }
 
 

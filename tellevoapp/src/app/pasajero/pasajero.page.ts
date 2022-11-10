@@ -26,8 +26,7 @@ export class PasajeroPage implements OnInit {
     {value: 'poniente', viewValue: 'Poniente'},
     {value: 'sur', viewValue: 'Sur'},
   ];
-  
-  //INICIALIZACIÓN DE OBJETO PARA CAPTURAR LOS DATOS INGRESADOS DEL USUARIO.
+  //**********CAPTURA DE DATOS.**********
   datos = {
 
     ruta: "",
@@ -35,8 +34,14 @@ export class PasajeroPage implements OnInit {
     modelo: ""
     
   }
+  //**********CAPTURA DE DATOS.**********
   //CREACIÓN DE VARIABLE TIPO ANY, PERMITE CUALQUIER VALOR SE UTILIZARÁ PARA CAPTURAR LOS DATOS DESDE EL PAGE LOGIN.
-  data: any; 
+  data: any;
+  //**********BANDERA LOGIN LOCALSTORAGE.**********
+  bandera = {
+    logueado: "true"
+  }
+  //**********BANDERA LOGIN LOCALSTORAGE.********** 
   
   constructor(private router: Router, private activeroute: ActivatedRoute, private geo: Geolocation) { 
 
@@ -51,11 +56,8 @@ export class PasajeroPage implements OnInit {
     });
 
   }
-  //OBTENCIÓN DE LOS DATOS DEL USUARIO.
-  nombreUsuario = JSON.parse(localStorage.getItem('usuario'));
-  //ASIGNACIÓN DEL NOMBRE DEL USUSARIO A LA VARIABLE.
-  alumno = ' ' + this.nombreUsuario.nombre + ' ' + this.nombreUsuario.apellido
-  //FUNCIÓN QUE PERMITIRÁ REALIZAR EL LOGOUT AL USUARIO REDIRECCIONÁNDOLO AL LOGIN.
+  
+  //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
 
     //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
@@ -66,8 +68,12 @@ export class PasajeroPage implements OnInit {
     localStorage.setItem('login', JSON.stringify(datosLogin));
     //REDIRECCIÓN AL PAGE LOGIN.  
     this.router.navigate(['/home']);
-  }  
+  }
+  //**********FUNCIÓN LOGOUT.**********.  
   ngOnInit() {
+    //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
+    localStorage.setItem('login', JSON.stringify(this.bandera));
+    //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
   }
   //POSISIONAMIENTO DEL CHECK BOX
   labelPosition: 'before' | 'after' = 'after';

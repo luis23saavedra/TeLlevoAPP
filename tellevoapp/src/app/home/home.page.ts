@@ -16,14 +16,13 @@ import {getAuth, GoogleAuthProvider } from "firebase/auth";
 })
 export class HomePage implements OnInit{
 
-    //**********CAPTURA DE DATOS.**********
-      
-     datos = {
+  //**********CAPTURA DE DATOS.**********
+    datos = {
   
       email: ""
       
     }
-    //**********CAPTURA DE DATOS.**********
+  //**********CAPTURA DE DATOS.**********
   constructor(public dialog: MatDialog, private data: ApiService, private database: DbService) {}
   
   //**********DIALOG ANIMATION**********/  
@@ -33,6 +32,7 @@ export class HomePage implements OnInit{
       enterAnimationDuration,
       exitAnimationDuration,
     });
+    
   }
   //**********DIALOG ANIMATION**********/ 
   //**********AUTENTICACIÓN FIREBASE GOOGLE */
