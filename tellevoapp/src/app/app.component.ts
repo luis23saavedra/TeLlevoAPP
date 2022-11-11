@@ -19,6 +19,7 @@ export class AppComponent implements OnInit{
     //INICIALIZACIÓN DE LOCALSTORAGE, EL USUARIO INICIALIZA SIN DATOS (S/D).
     localStorage.setItem('login', JSON.stringify(this.bandera));
     //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
+   
   }
   
 }

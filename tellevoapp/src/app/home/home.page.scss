@@ -29,13 +29,17 @@
 ::ng-deep.mat-form-field-appearance-fill{
   color: black;
 }
-.margin-superior{
-  margin-top: 32px;
+// .margin-superior{
+//   margin-top: 10px;
+// }
+.imagen{
+  display: flex;
+  height: 75px;
+  width: 100% !important;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  image-rendering: optimizeQuality;
 }
-// .margin-contenido{
-//   margin-left: 20px;
-// } 
-
 .margin-titulo{
   margin-left: 75px;
   margin-bottom: 30px;
@@ -54,31 +58,39 @@
   background: white;
   
 }
-.margenb{
-  margin-top: 10px;
-  margin-left: 50px;
+.margin-fondo{
+  margin-bottom: 15px;
+}
+.botton{
+  margin-top: 20px;
+  margin-left: 55px;
   width: 205px;
   color: white;
   background-color:  rgb(0, 22, 75);
   
 }
-.margenb1{
+.botton1{
   margin-top: 20px;
-  margin-left: 50px;
-  margin-bottom: 10px;
+  margin-left: 55px;
+  margin-bottom: 15px;
   width: 205px;
   color: white;
   background-color:  rgb(13, 69, 201);
   
 }
-.margin-fondo{
-  margin-bottom: 15px;
+.recuperar-contrasenia{
+  margin-left: 90px;
+  text-decoration: underline;
+  font-style: oblique;
+  color:  rgb(0, 22, 75);
+  font-weight: 550;
 }
 .footer{
-  background-color: rgb(192, 192, 192);
+  margin-top: 25px;
   color: rgb(0, 22, 75);
   font-style: italic;
-  font-size: smaller;
+  font-size: medium;
+  font-weight: 550;
   padding-top: 10px;
 }
 
@@ -94,10 +106,10 @@
 
 @keyframes slidein {
   from {
-    margin-left: 15%;
+    margin-left: 17%;
   }
   to {
-    margin-right: 30%;
+    margin-right: 50%;
   }
 }
 //**********ANIMACION**********

@@ -33,13 +33,13 @@ export class ApiService {
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
   registroConductor(): Observable<any>{
 
-    return this.http.get<any>('assets/json/conductor.json' ).pipe(retry(3))
+    return this.http.get<any>('assets/json/conductor.json' )
 
   }
 
   registroPasajero(): Observable<any>{
 
-    return this.http.get<any>('assets/json/pasajero.json' ).pipe(retry(3))
+    return this.http.get<any>('assets/json/pasajero.json' )
 
   }
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********

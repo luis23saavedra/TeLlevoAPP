@@ -5,35 +5,40 @@
         "nombre": "Francisco Antonio",
         "apellido": "Aguilera Gutierrez",
         "usuario": "Pasajero",        
-        "email": "francisco.ag@duocuc.cl"
+        "email": "francisco.ag@duocuc.cl",
+        "contrasenia": "12345"
         },
         {
             "rut": "77777777-7",
             "nombre": "Marcelo Alexander",
             "apellido": "Jimenez Cisternas",
             "usuario": "Pasajero",        
-            "email": "marcelo.ji@duocuc.cl"
+            "email": "marcelo.ji@duocuc.cl",
+            "contrasenia": "12345"
         },
         {
             "rut": "88888888-8",
             "nombre": "Agustin Pedro",
             "apellido": "San fuentes Sandoval",
             "usuario": "Pasajero",        
-            "email": "agustin.san@duocuc.cl"
+            "email": "agustin.san@duocuc.cl",
+            "contrasenia": "12345"
         },
         {
             "rut": "99999999-9",
             "nombre": "Claudio Alberto",
             "apellido": "Guajardo Pavez",        
             "usuario": "Pasajero",
-            "email": "claudio.gu@duocuc.cl"
+            "email": "claudio.gu@duocuc.cl",
+            "contrasenia": "12345"
         },
         {
             "rut": "99999991-0",
             "nombre": "Nicolas Andrez",
             "apellido": "Mora Quezada",
             "usuario": "Pasajero",
-            "email": "nicolas.mo@duocuc.cl"
+            "email": "nicolas.mo@duocuc.cl",
+            "contrasenia": "12345"
         }
     ]    
 }    

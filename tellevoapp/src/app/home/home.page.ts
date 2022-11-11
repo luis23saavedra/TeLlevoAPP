@@ -19,7 +19,8 @@ export class HomePage implements OnInit{
   //**********CAPTURA DE DATOS.**********
     datos = {
   
-      email: ""
+      email: "",
+      contrasenia: ""
       
     }
   //**********CAPTURA DE DATOS.**********
@@ -40,21 +41,21 @@ export class HomePage implements OnInit{
   //**********AUTENTICACIÓN FIREBASE GOOGLE */
   ngOnInit(){
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
-    // this.data.registroConductor().subscribe((data) => {
-    //   this.database.insertar("conductor", data).then(() => {
-    //     console.log('registro guardado!');
-    //   },(error) => {
-    //     console.log(error)
-    //   });
-    // })
+    this.data.registroConductor().subscribe((data) => {
+      this.database.insertar("conductor", data).then(() => {
+        console.log('registro guardado!');
+      },(error) => {
+        console.log(error)
+      });
+    })
     
-    // this.data.registroPasajero().subscribe((data) => {
-    //   this.database.insertar("pasajero", data).then(() => {
-    //     console.log('registro guardado!');
-    //   },(error) => {
-    //     console.log(error)
-    //   });
-    // })
+    this.data.registroPasajero().subscribe((data) => {
+      this.database.insertar("pasajero", data).then(() => {
+        console.log('registro guardado!');
+      },(error) => {
+        console.log(error)
+      });
+    })
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
   }
 

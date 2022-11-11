@@ -27,7 +27,6 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    // canActivate:[NoLogueadoGuard]
   },
   {
     path: '',
@@ -64,7 +63,6 @@ const routes: Routes = [
   {
     path: 'pasajero',
     loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule),
-    // canActivate:[NoLogueadoGuard]
 
   },
   {
@@ -75,10 +73,6 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'error404',
