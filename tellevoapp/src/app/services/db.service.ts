@@ -14,6 +14,8 @@ export class DbService {
   public insertar(coleccion, datos) {
       return this.database.collection(coleccion).add(datos);
   }
-  
-
+  //MÉTODO QUE PERMITE OBTENER LOS DATOS ALMACENADOS POR COLECCIÓN.
+  public consultar(colecccion) {
+    return this.database.collection(colecccion).snapshotChanges();
+  }
 }

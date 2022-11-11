@@ -41,21 +41,38 @@ export class HomePage implements OnInit{
   //**********AUTENTICACIÓN FIREBASE GOOGLE */
   ngOnInit(){
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
-    this.data.registroConductor().subscribe((data) => {
-      this.database.insertar("conductor", data).then(() => {
-        console.log('registro guardado!');
-      },(error) => {
-        console.log(error)
-      });
-    })
+    //CONSULTA DE LOS DATOS A LA BD.
+    this.database.consultar("conductor").subscribe((conductor => {
+      //SI EXISTEN DATOS EN LA COLECCIÓN CONDUCTOR NO INSERTARÁ LOS DATOS, EN CASO CONTRARIO REALIZA EL INSERT.
+      if (conductor.length > 0){
+        console.log("existe la tabla conductor")
+        
+      }else{
+        this.data.registroConductor().subscribe((data) => {
+          this.database.insertar("conductor", data).then(() => {
+          console.log('registro guardado!');
+          },(error) => {
+          console.log(error)
+          });
+          })
+      }
+    }))
+    //SE REALIZA EL MISMO PASO ANTERIOR.
+    this.database.consultar("pasajero").subscribe((pasajero => {
+
+      if(pasajero.length > 0){
+        console.log("colecion pasajeros existe")
+      }else{  
+          this.data.registroPasajero().subscribe((data) => {
+          this.database.insertar("pasajero", data).then(() => {
+            console.log('registro guardado!');
+          },(error) => {
+            console.log(error)
+          });
+          })
+      }  
+    }))
     
-    this.data.registroPasajero().subscribe((data) => {
-      this.database.insertar("pasajero", data).then(() => {
-        console.log('registro guardado!');
-      },(error) => {
-        console.log(error)
-      });
-    })
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
   }
 
