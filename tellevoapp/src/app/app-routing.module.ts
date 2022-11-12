@@ -89,7 +89,7 @@ const routes: Routes = [
   },
   {
     path: 'dialog-reg',
-    loadChildren: () => import('./dialog-reg/dialog-reg.module').then( m => m.DialogRegPageModule)
+    loadChildren: () => import('./dialog/dialog-reg/dialog-reg.module').then( m => m.DialogRegPageModule)
   },
   
   
@@ -101,6 +101,10 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: RestablecerContraseniaPage
+  },
+  {
+    path: 'dialog-error-login',
+    loadChildren: () => import('./dialog/dialog-error-login/dialog-error-login.module').then( m => m.DialogErrorLoginPageModule)
   },
   
 

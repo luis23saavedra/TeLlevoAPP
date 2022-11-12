@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 
+// import { provideAuth, getAuth} from '@angular/fire/auth'
 
 
 
@@ -31,7 +32,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
     MatIconModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    // provideAuth(() => getAuth)
     
   ],
   providers: [Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

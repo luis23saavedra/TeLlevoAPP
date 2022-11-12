@@ -31,17 +31,12 @@ export class ApiService {
   }
   //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
-  registroConductor(): Observable<any>{
+  registroAlumnos(): Observable<any>{
 
-    return this.http.get<any>('assets/json/conductor.json' )
-
-  }
-
-  registroPasajero(): Observable<any>{
-
-    return this.http.get<any>('assets/json/pasajero.json' )
+    return this.http.get<any>('assets/json/alumnos.json' )
 
   }
+ 
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
   
 }

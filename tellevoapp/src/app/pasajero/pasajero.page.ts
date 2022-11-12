@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 // import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native';
 
+import { DbService } from './../services/db.service';
 //CREACIÓN DE INTERFAZ.
 
 interface Seleccion {
@@ -43,7 +44,7 @@ export class PasajeroPage implements OnInit {
   }
   //**********BANDERA LOGIN LOCALSTORAGE.********** 
   
-  constructor(private router: Router, private activeroute: ActivatedRoute, private geo: Geolocation) { 
+  constructor(private router: Router, private activeroute: ActivatedRoute, private database: DbService, private geo: Geolocation) { 
 
     // LLAMADO A LA RUTA ACTIVA
     this.activeroute.queryParams.subscribe(params => { 
