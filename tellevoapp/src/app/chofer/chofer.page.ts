@@ -60,6 +60,11 @@ export class ChoferPage implements OnInit {
   //  //ASIGNACIÓN DEL NOMBRE DEL USUSARIO A LA VARIABLE.
   //  conductor = ' ' + this.nombreUsuario.nombre + ' ' + this.nombreUsuario.apellido
   //FUNCIÓN QUE PERMITIRÁ REALIZAR EL LOGOUT AL USUARIO REDIRECCIONÁNDOLO AL LOGIN.
+  //**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********
+  datosAlumno = JSON.parse(localStorage.getItem('alumno'));
+  
+  conductor = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
+  /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
   //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
 
@@ -73,17 +78,7 @@ export class ChoferPage implements OnInit {
     this.router.navigate(['/home']);
   }
   //**********FUNCIÓN LOGOUT.**********.
-  //  salirPagina(){
-
-  //   //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
-  //   var datosLogin = JSON.parse(localStorage.getItem('login'));
-  //   //ASIGNACIÓN DE VALOR FALSE A LA BANDERA DE LOCALSTORAGE
-  //   datosLogin.logueado = 'false'
-  //   //SE SOBREESCRIBE EL VALOR DE LA BANDERA PARA EJECUCIÓN DE LOG OUT.
-  //   localStorage.setItem('login', JSON.stringify(datosLogin));
-  //   //REDIRECCIÓN AL PAGE LOGIN.  
-  //   this.router.navigate(['/home']); 
-  // }
+    
   ngOnInit() {
     //GUARDADO DE BANDERA EN LOCALSTORAGE.
     localStorage.setItem('login', JSON.stringify(this.bandera));

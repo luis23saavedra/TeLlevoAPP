@@ -31,6 +31,9 @@ export class HomePage implements OnInit{
   alumnos = {
     
   }
+  navegacion = {
+
+  }
   //**********CAPTURA DE DATOS.**********
   //**********BANDERAS LOGIN***********/
   existe = 0;
@@ -39,7 +42,11 @@ export class HomePage implements OnInit{
   //**********BANDERAS LOGIN***********/
   constructor(public dialog: MatDialog, private api: ApiService, private database: DbService, private router: Router) {}
 
-  
+  // envioDatos(datos: any){
+
+  //   return datos
+
+  // }
   //**********REGISTRO Y VALIDACIÓN DE ALUMNO**********/  
   registroValidacion(enterAnimationDuration: string, exitAnimationDuration: string): void {
     //LLAMADO AL SERVICIO API, CONTIENE LOS ALUMNOS ALMACENADOS EN LA BD, LA VARIABLE DATA ALMACENA ESTOS DATOS.
@@ -58,10 +65,14 @@ export class HomePage implements OnInit{
         // //SI EL EMAIL EXISTE EN LA BD.
         if ( this.datos.email === x.email ){
           this.existe = 1;
+          this.navegacion = x;
         }
       });
       //SI LAS CREDENCIALES SON CORRECTAS Y EXISTE EL ALUMNO.
       if (this.ingreso === 1 && this.existe === 1){
+        //**********GUARDADO DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
+        localStorage.setItem('alumno', JSON.stringify(this.navegacion));
+        //**********GUARDADO DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
         // VERIFICACIÓN DE LOS DATOS DEL USUARIO.
           console.log("usuario encontrado en la base de datos.")
           this.database.login(this.datos.email, this.datos.contrasenia)
@@ -73,6 +84,7 @@ export class HomePage implements OnInit{
                 width: '250px',
                 enterAnimationDuration,
                 exitAnimationDuration,
+                
               });
             },
               
@@ -141,7 +153,6 @@ export class HomePage implements OnInit{
         this.api.registroAlumnos().subscribe((data) => {
           //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
           data.forEach(x => {
-            console.log(x.email)
             //ASIGNACIÓN DE LA INFORMACIÓN AL OBJETO ALUMNOS.
             this.alumnos = x
             this.database.insertar("alumnos", this.alumnos).then(() => {

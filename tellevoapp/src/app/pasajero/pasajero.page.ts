@@ -57,7 +57,11 @@ export class PasajeroPage implements OnInit {
     });
 
   }
+  //**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********
+  datosAlumno = JSON.parse(localStorage.getItem('alumno'));
   
+  pasajero = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
+  /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
   //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
 
