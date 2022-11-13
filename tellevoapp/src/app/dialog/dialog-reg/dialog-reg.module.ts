@@ -10,13 +10,16 @@ import { DialogRegPage } from './dialog-reg.page';
 
 import {MatDialogModule} from '@angular/material/dialog';
 
+import {MatDividerModule} from '@angular/material/divider';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     DialogRegPageRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ],
   declarations: [DialogRegPage]
 })

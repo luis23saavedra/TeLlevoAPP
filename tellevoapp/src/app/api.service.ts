@@ -24,6 +24,7 @@ export class ApiService {
 
 
   constructor( private http: HttpClient) { }
+  api = 'http://localhost:3000/'
   //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
   consultaDatos():Observable<Usuarios[]>{
     
@@ -33,7 +34,7 @@ export class ApiService {
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
   registroAlumnos(): Observable<any>{
 
-    return this.http.get<any>('assets/json/alumnos.json' )
+    return this.http.get<any>('http://localhost:3000/' + 'usuario' )
 
   }
  

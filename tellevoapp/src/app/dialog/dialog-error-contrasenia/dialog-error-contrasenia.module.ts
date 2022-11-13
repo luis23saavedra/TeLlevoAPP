@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DialogErrorLoginPageRoutingModule } from './dialog-error-login-routing.module';
+import { DialogErrorContraseniaPageRoutingModule } from './dialog-error-contrasenia-routing.module';
 
-import { DialogErrorLoginPage } from './dialog-error-login.page';
+import { DialogErrorContraseniaPage } from './dialog-error-contrasenia.page';
 
 import {MatDividerModule} from '@angular/material/divider';
 
@@ -15,9 +15,9 @@ import {MatDividerModule} from '@angular/material/divider';
     CommonModule,
     FormsModule,
     IonicModule,
-    DialogErrorLoginPageRoutingModule,
+    DialogErrorContraseniaPageRoutingModule,
     MatDividerModule
   ],
-  declarations: [DialogErrorLoginPage]
+  declarations: [DialogErrorContraseniaPage]
 })
-export class DialogErrorLoginPageModule {}
+export class DialogErrorContraseniaPageModule {}

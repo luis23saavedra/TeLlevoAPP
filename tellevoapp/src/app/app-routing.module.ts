@@ -106,6 +106,10 @@ const routes: Routes = [
     path: 'dialog-error-login',
     loadChildren: () => import('./dialog/dialog-error-login/dialog-error-login.module').then( m => m.DialogErrorLoginPageModule)
   },
+  {
+    path: 'dialog-error-contrasenia',
+    loadChildren: () => import('./dialog/dialog-error-contrasenia/dialog-error-contrasenia.module').then( m => m.DialogErrorContraseniaPageModule)
+  },
   
 
   
