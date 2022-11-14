@@ -28,10 +28,30 @@
         Pasajero: {{pasajero}}
       </ion-col>
     </ion-row>
-  </div> 
+  </div>
+  <!-- ETIQUETA QUE MUESTRA LA UBICACIÓN. -->
+  <div id="map"></div>
+
   <form action="" #formulario="ngForm" >
 
-    <div class="margin-check letra caja3">
+    <div class=" letra ">
+      <ion-row >
+          <ion-col size="3" class="destino">
+            Destino:
+          </ion-col>
+          <ion-col size="9">
+            <mat-form-field appearance="fill" class="letra " >
+              <input matInput placeholder="ingresa tu dirección" name="direccion" type="text" #direccion="ngModel"  class="letra" [(ngModel)]="datos.direccion" required>
+              <!-- VALIDACIONES -->
+              <mat-error *ngIf="direccion.errors?.['required']">
+                Debes ingresar tu destino.
+              </mat-error>
+              <!-- VALIDACIONES -->
+            </mat-form-field>
+          </ion-col>  
+      </ion-row>
+    </div>
+    <!-- <div class="margin-check letra caja3">
       <ion-row >
           <ion-col size="12">
             Viajes Disponibles
@@ -43,9 +63,9 @@
               </mat-radio-group>
           </ion-col>  
       </ion-row>
-    </div>
+    </div> -->
     
-    <div class="margin-check caja3">
+    <!-- <div class="margin-check caja3">
       <ion-row>
         <ion-col size="12">
           Tarifa
@@ -57,16 +77,17 @@
               <mat-expansion-panel-header>
                 <mat-panel-title size="5">
                   Valor Tarifa
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              $50 x Minuto.
+                </mat-panel-title> -->
+                <!-- <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>   -->
+              <!-- </mat-expansion-panel-header>
+              <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>
             </mat-expansion-panel>
           </mat-accordion>  
         </ion-col>
       </ion-row>
-    </div> 
+    </div>  -->
 
-    <div class="margin-contenido letra caja3">
+    <!-- <div class="margin-contenido letra caja3">
       <ion-row>
         <ion-col size="5">
           Total Viaje:
@@ -75,15 +96,15 @@
 
         </ion-col>
       </ion-row>
-    </div>
+    </div> -->
     
-    <mat-divider [inset]="true" class="caja3"></mat-divider>
+    <!-- <mat-divider [inset]="true" class="caja3"></mat-divider> -->
 
-    <ion-row>
+    <!-- <ion-row>
       <div class="example-button-row">
         <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>
       </div> 
-    </ion-row>
+    </ion-row> -->
 
   </form>
   

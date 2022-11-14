@@ -9,8 +9,8 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item [routerLink]="['/perfil']">
-            <mat-icon>face</mat-icon>
-            <span>Perfil</span>
+            <mat-icon>rv_hookup</mat-icon>
+            <span>Viajes Realizados</span>
           </button>
           <button mat-menu-item (click)="salirPagina()">
             <mat-icon>reply</mat-icon>
@@ -28,10 +28,87 @@
       </ion-col>
     </ion-row>
   </div> 
-  
+  <!-- ETIQUETA QUE MUESTRA LA UBICACIÓN. -->
+  <div id="map"></div>
+
   <form action="" #formulario="ngForm" >
- 
-    <div class="margin-check letra caja3">
+    
+    <div class=" letra ">
+      <ion-row >
+          <ion-col size="4" class="body">
+            Patente:
+          </ion-col>
+          <ion-col size="8">
+            <mat-form-field appearance="fill" class="letra " >
+              <input matInput placeholder="ingresa tu patente" name="patente" type="text" #patente="ngModel" minlength=8 maxlength=8 class="letra" [(ngModel)]="datos.patente" required>
+              <!-- VALIDACIONES -->
+              <mat-error *ngIf="patente.errors?.['required']">
+                Debes ingresar tu patente.
+              </mat-error>
+              <mat-error *ngIf="patente.errors?.['minlength']">
+                Patente inválida.
+              </mat-error>
+              <!-- VALIDACIONES -->
+            </mat-form-field>
+          </ion-col>  
+      </ion-row>
+    </div>
+
+    <div class=" letra ">
+      <ion-row >
+          <ion-col size="4" class="letra-radio">
+            Capacidad:
+          </ion-col>
+          <ion-col size="8">
+              <mat-radio-group name="capacidad" [(ngModel)]="datos.capacidad" #patente="ngModel" required>
+                <mat-radio-button class="margin-radio"   (clic)="geolocalizacion()">1</mat-radio-button>
+                <mat-radio-button class="margin-radio" >2</mat-radio-button>
+                <mat-radio-button class="margin-radio" >3</mat-radio-button>
+                <mat-radio-button class="margin-radio" >4</mat-radio-button>
+              </mat-radio-group>
+              <!-- VALIDACIONES -->
+              <!-- <mat-error *ngIf="capacidad.errors?.['required']">
+                Debes seleccionar tu capacidad.
+              </mat-error> -->
+              <!-- VALIDACIONES -->
+          </ion-col>  
+      </ion-row>
+    </div>
+    
+    <div class=" letra ">
+      <ion-row >
+          <ion-col size="4" class="body">
+            Tarifa:
+          </ion-col>
+          <ion-col size="8">
+            <mat-form-field appearance="fill" class="letra " >
+              <input matInput placeholder="ingresa tu tarifa" name="tarifa" type="text" #tarifa="ngModel" maxlength="4" class="letra" [(ngModel)]="datos.tarifa" pattern="^[0-9]+$"  required>
+              <!-- VALIDACIONES -->
+              <mat-error *ngIf="tarifa.errors?.['required']">
+                Debes ingresar tu tarifa.
+              </mat-error>
+              <mat-error *ngIf="tarifa.errors?.['pattern']">
+                Monto inválido.
+              </mat-error>
+              <!-- <mat-error *ngIf="tarifa.errors?.['minlength']">
+                Patente inválida.
+              </mat-error> -->
+              <!-- VALIDACIONES -->
+             </mat-form-field>
+          </ion-col>  
+      </ion-row>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div>
+      <ion-row>
+        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="botton" shape="round" >
+        <mat-icon>time_to_leave</mat-icon>
+        Comenzar Viaje</button>
+      </ion-row> 
+    </div>
+    <!--<div class="margin-check letra caja3">
       <ion-row>
         <ion-col size="12">
           Establece la tarifa:
@@ -58,7 +135,7 @@
       <div class="example-button-row">
         <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="redirecionPage()">Ingresar</button>
       </div> 
-    </ion-row>
+    </ion-row>-->
 
   </form>
 

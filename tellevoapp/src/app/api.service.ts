@@ -24,12 +24,19 @@ export class ApiService {
 
 
   constructor( private http: HttpClient) { }
+  //*********URLS API********** */
   api = 'http://localhost:3000/'
+  apiMap = 'http://maps.google.com/maps/api/js?sensor=false'
+  //*********URLS API********** */
   //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
   consultaDatos():Observable<Usuarios[]>{
     
     return this.http.get<any>('https://jsonplaceholder.typicode.com/users' ).pipe(retry(3))
   }
+  // apiGoogle(){
+
+  //   return this.http.get<any>(this.apiMap )
+  // }
   //**********OBTENCIÓN DE DATOS DESDE API EXTERNA.**********
   //**********OBTENCIÓN DE DATOS DESDE API LOCAL.**********
   registroAlumnos(): Observable<any>{

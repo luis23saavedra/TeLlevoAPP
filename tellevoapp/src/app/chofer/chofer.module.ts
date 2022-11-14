@@ -16,7 +16,6 @@ import {MatSelectModule} from '@angular/material/select';
 //IMPORTADO PARA QUE APAREZCA EL INPUT DEL EMAIL.
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 
