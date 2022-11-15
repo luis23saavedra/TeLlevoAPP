@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-//GEOLOCALIZACION Y GOOGLE MAPS
-import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { MapsService } from '../services/maps.service';
+
 // import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native';
 
 import { DbService } from './../services/db.service';
@@ -54,9 +54,9 @@ export class PasajeroPage implements OnInit {
     logueado: "true"
   }
   //**********BANDERA LOGIN LOCALSTORAGE.********** 
-  //VARIABLE QUE CONTRIBUYE A LA CREACIÓN DE MAPS
-  map = null
-  constructor(private router: Router, private activeroute: ActivatedRoute, private database: DbService, private geo: Geolocation) { 
+  // //VARIABLE QUE CONTRIBUYE A LA CREACIÓN DE MAPS
+  // map = null
+  constructor(private router: Router, private activeroute: ActivatedRoute, private database: DbService, private map: MapsService ) { 
 
     // LLAMADO A LA RUTA ACTIVA
     this.activeroute.queryParams.subscribe(params => { 
@@ -88,48 +88,48 @@ export class PasajeroPage implements OnInit {
   }
   //**********FUNCIÓN LOGOUT.**********.
   //**********GOOGLE MAPS********** */
-  loadMap() {
+  // loadMap() {
     
-    // CREACIÓN DE MAPA EN LA ETIQUETA HTML.
-    const mapEle: HTMLElement = document.getElementById('map');
-    // CREACIÓN DE LA LATITUD Y LONGITUD.
-    const myLatLng = {lat: -33.59826, lng: -70.57926};
-    // CREACIÓN DE MAPA.
-    this.map = new google.maps.Map(mapEle, {
-      center: myLatLng,
-      zoom: 12
-    });
-    //
-    google.maps.event.addListenerOnce(this.map, 'idle', () => {
-      // this.renderMarkers();
-      mapEle.classList.add('show-map');
-      //SE ESTABLECE LA POSICIÓN INICIAL EN EL MAPA.
-      const marker = {
-        position: {
-          lat: -33.59826,
-          lng: -70.57926
-        },
-        title: 'Punto Partida'
-      }
-      //LLAMADO AL MÉTODO PARA ESTABLECER EL PUNTO DE PARTIDA
-      this.addMarker(marker);
-    });
-  }
-  //SE AGREGA LA POSICIÓN INICIAL.
-  addMarker(marker: Marker) {
-    return new google.maps.Marker({
-      position: marker.position,
-      map: this.map,
-      title: marker.title
-    });
-  }
+  //   // CREACIÓN DE MAPA EN LA ETIQUETA HTML.
+  //   const mapEle: HTMLElement = document.getElementById('map');
+  //   // CREACIÓN DE LA LATITUD Y LONGITUD.
+  //   const myLatLng = {lat: -33.59826, lng: -70.57926};
+  //   // CREACIÓN DE MAPA.
+  //   this.map = new google.maps.Map(mapEle, {
+  //     center: myLatLng,
+  //     zoom: 12
+  //   });
+  //   //
+  //   google.maps.event.addListenerOnce(this.map, 'idle', () => {
+  //     // this.renderMarkers();
+  //     mapEle.classList.add('show-map');
+  //     //SE ESTABLECE LA POSICIÓN INICIAL EN EL MAPA.
+  //     const marker = {
+  //       position: {
+  //         lat: -33.59826,
+  //         lng: -70.57926
+  //       },
+  //       title: 'Punto Partida'
+  //     }
+  //     //LLAMADO AL MÉTODO PARA ESTABLECER EL PUNTO DE PARTIDA
+  //     this.addMarker(marker);
+  //   });
+  // }
+  // //SE AGREGA LA POSICIÓN INICIAL.
+  // addMarker(marker: Marker) {
+  //   return new google.maps.Marker({
+  //     position: marker.position,
+  //     map: this.map,
+  //     title: marker.title
+  //   });
+  // }
   //**********GOOGLE MAPS********** */  
   ngOnInit() {
     //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
     localStorage.setItem('login', JSON.stringify(this.bandera));
     //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
     //********** CARGADO DE MAPA AL INICIO DEL PAGE********** */
-    this.loadMap();
+    this.map.loadMap();
     //********** CARGADO DE MAPA AL INICIO DEL PAGE********** */
   }
   
@@ -138,23 +138,7 @@ export class PasajeroPage implements OnInit {
   //SE ESCONDE LA EXPANSIÓN DEL PANEL POR DEFECTO.
   panelOpenState = false;
   //GEOLOZALIZACIÓN PASAJERO.
-  geolocalizacion(){
-
-    this.geo.getCurrentPosition().then((resp) =>{
-      // resp.coords.latitude
-      // resp.coords.longitude
-      console.log("localizacion: ", resp)
-    }).catch((error) =>{
-      console.log("Error al obtener la localizacion", error)
-    });
-
-    let watch = this.geo.watchPosition();
-    watch.subscribe((data) => {
-    // data can be a set of coordinates, or an error (if an error occurred).
-    // data.coords.latitude
-    // data.coords.longitude
-    });
-  }
+  
   // @ViewChild('map') mapView: ElementRef;
   // CUANDO ELCICLO DE VIDA DEL PAGE ENTRE A SU FINALIZACIÓN
   // ionViewDidEnter() {
