@@ -51,7 +51,7 @@ export class HomePage implements OnInit{
   registroValidacion(enterAnimationDuration: string, exitAnimationDuration: string): void {
     //LLAMADO AL SERVICIO API, CONTIENE LOS ALUMNOS ALMACENADOS EN LA BD, LA VARIABLE DATA ALMACENA ESTOS DATOS.
     this.api.registroAlumnos().subscribe((data) => {
-      //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
+      //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API.
       data.forEach(x => {
         //SI EL EMAIL Y LA CONTRASEÑA COINCIDEN SE AUMENTA LA BANDERA EN 1.
         if (this.datos.email === x.email && this.datos.contrasenia === x.contrasenia){

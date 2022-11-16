@@ -64,22 +64,53 @@ export class ChoferPage implements OnInit {
 
   //**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********
   datosAlumno = JSON.parse(localStorage.getItem('alumno'));
-  //ASIGNACIÓN DE NOMBRE DEL CONDUCTOR.
-  conductor = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
+  //ASIGNACIÓN ID DOCUMENTO DE LA COLECCIÓN CONDUCTOR. 
+  conductorDocumento = this.datosAlumno.primer_nombre + '_' + this.datosAlumno.primer_apellido 
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
+
+  //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
   datosConductor(){
-    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
-    //SE PASA EL NOMBRE DEL CONDUCTOR AL ARREGLO.
+    //ASIGNACIÓN NOMBRE CONDUCTOR.
+    this.datos.nombre = this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
+    this.database.insertarConductor("conductor",this.conductorDocumento,this.datos);
+    this.database.consultarConductor("conductor").subscribe(resp =>{
+      console.log(resp)
+    })
+    //PASADO EL NOMBRE DEL CONDUCTOR AL ARREGLO.
     //LOS DATOS SE REPITEN EN LA BD, CONSULTAR POR PATENTE.
-    this.datos.nombre = this.conductor;
-    this.database.insertar("conductor", this.datos).then(() => {
-      console.log('registro conductor guardado!');
-      },(error) => {
-      console.log("error al insertar los datos",error)
-      });
-    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
-    console.log(this.datos)
+    // this.datos.nombre = this.conductor;
+    // this.database.insertar("conductor", this.datos).then(() => {
+    //   console.log('registro conductor guardado!');
+    //   },(error) => {
+    //   console.log("error al insertar los datos",error)
+    //   });
+    // console.log(this.datos)
+     //CONSULTA DE LOS DATOS A LA BD.
+    //  this.database.consultar("conductor").subscribe((conductor => {
+      //SI EXISTEN DATOS EN LA COLECCIÓN CONDUCTOR NO INSERTARÁ LOS DATOS, EN CASO CONTRARIO REALIZA EL INSERT.
+      // if (conductor.length > 0){
+      //   // console.log("existe la tabla alumnos")
+      //   console.log(conductor)
+        
+      // }// }else{
+      //   this.api.registroAlumnos().subscribe((data) => {
+      //     //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
+      //     data.forEach(x => {
+      //       //ASIGNACIÓN DE LA INFORMACIÓN AL OBJETO ALUMNOS.
+      //       this.alumnos = x
+      //       this.database.insertar("alumnos", this.alumnos).then(() => {
+      //         console.log('registro guardado!');
+      //         },(error) => {
+      //         console.log("error al insertar los datos",error)
+      //         });
+      //     });
+          
+      //   })
+      // }
+    // }))
   }
+  //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+
   //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
 
