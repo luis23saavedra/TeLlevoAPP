@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { MapsService } from '../services/maps.service';
 
+import { DbService } from './../services/db.service';
+
 //CREACIÓN DE INTERFAZ. 
 // interface Seleccion {
 //   value: string;
@@ -20,9 +22,11 @@ export class ChoferPage implements OnInit {
   //**********CAPTURA DE DATOS.**********
   datos = {
 
+    nombre: "",
     patente: "",
     capacidad: "",
     tarifa: "",
+    disponible: true
     
   }
   //**********CAPTURA DE DATOS.**********
@@ -45,7 +49,7 @@ export class ChoferPage implements OnInit {
   //**********BANDERA LOGIN LOCALSTORAGE.**********
   
 
-  constructor(private router: Router, private activeroute: ActivatedRoute, private map: MapsService) { 
+  constructor(private router: Router, private activeroute: ActivatedRoute, private map: MapsService, private database: DbService) { 
 
     // LLAMADO A LA RUTA ACTIVA
     this.activeroute.queryParams.subscribe(params => { 
@@ -58,13 +62,24 @@ export class ChoferPage implements OnInit {
     });
   }
 
-  //POSICIONAMIENTO DEL CHECK BOX
-  // labelPosition: 'before' | 'after' = 'after';
   //**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********
   datosAlumno = JSON.parse(localStorage.getItem('alumno'));
-  
+  //ASIGNACIÓN DE NOMBRE DEL CONDUCTOR.
   conductor = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
+  datosConductor(){
+    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+    //SE PASA EL NOMBRE DEL CONDUCTOR AL ARREGLO.
+    //LOS DATOS SE REPITEN EN LA BD, CONSULTAR POR PATENTE.
+    this.datos.nombre = this.conductor;
+    this.database.insertar("conductor", this.datos).then(() => {
+      console.log('registro conductor guardado!');
+      },(error) => {
+      console.log("error al insertar los datos",error)
+      });
+    //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+    console.log(this.datos)
+  }
   //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
 

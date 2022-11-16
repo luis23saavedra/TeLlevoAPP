@@ -45,6 +45,7 @@ input{
   text-align: left;
   margin-top: 20px;
   font-size: medium;
+  font-style: italic;
   font-weight: 500;
   text-decoration: underline;
   
@@ -63,10 +64,19 @@ mat-divider{
 }
 .botton{
   margin-top: 20px;
-  margin-left: 55px;
-  width: 205px;
+  margin-left: 15px;
+  text-align: center;
+  width: 120px;
   color: white;
   background-color:  rgb(0, 22, 75);
+}
+.botton1{
+  margin-top: 20px;
+  margin-left: 70px;
+  text-align: center;
+  width: 120px;
+  color: white;
+  background-color:  red;
 }
 // .margin-superior{
 //   background-color: rgb(244, 208, 130);

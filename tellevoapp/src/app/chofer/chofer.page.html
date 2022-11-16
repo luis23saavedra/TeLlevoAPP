@@ -60,16 +60,16 @@
             Capacidad:
           </ion-col>
           <ion-col size="8">
-              <mat-radio-group name="capacidad" [(ngModel)]="datos.capacidad" #patente="ngModel" required>
-                <mat-radio-button class="margin-radio"   (clic)="geolocalizacion()">1</mat-radio-button>
-                <mat-radio-button class="margin-radio" >2</mat-radio-button>
-                <mat-radio-button class="margin-radio" >3</mat-radio-button>
-                <mat-radio-button class="margin-radio" >4</mat-radio-button>
+              <mat-radio-group name="capacidad" [(ngModel)]="datos.capacidad" #capacidad="ngModel" required>
+                <mat-radio-button class="margin-radio" value="1" >1</mat-radio-button>
+                <mat-radio-button class="margin-radio" value="2" >2</mat-radio-button>
+                <mat-radio-button class="margin-radio" value="3" >3</mat-radio-button>
+                <mat-radio-button class="margin-radio" value="4">4</mat-radio-button>
               </mat-radio-group>
               <!-- VALIDACIONES -->
-              <!-- <mat-error *ngIf="capacidad.errors?.['required']">
+              <mat-error *ngIf="capacidad.errors?.['required']">
                 Debes seleccionar tu capacidad.
-              </mat-error> -->
+              </mat-error>
               <!-- VALIDACIONES -->
           </ion-col>  
       </ion-row>
@@ -103,9 +103,16 @@
 
     <div>
       <ion-row>
-        <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="botton" shape="round" >
-        <mat-icon>time_to_leave</mat-icon>
-        Comenzar Viaje</button>
+        <ion-col size="4"> 
+          <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="botton" shape="round" (click)="datosConductor()">
+          <mat-icon>time_to_leave</mat-icon>
+          Iniciar</button>
+        </ion-col>
+        <ion-col size="2"> 
+          <button mat-flat-button  type="submit" class="botton1" shape="round" >
+          <mat-icon>close</mat-icon>
+          Cancelar</button>
+        </ion-col>
       </ion-row> 
     </div>
 
