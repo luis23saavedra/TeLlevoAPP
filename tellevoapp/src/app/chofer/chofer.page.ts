@@ -65,7 +65,9 @@ export class ChoferPage implements OnInit {
   //**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********
   datosAlumno = JSON.parse(localStorage.getItem('alumno'));
   //ASIGNACIÓN ID DOCUMENTO DE LA COLECCIÓN CONDUCTOR. 
-  conductorDocumento = this.datosAlumno.primer_nombre + '_' + this.datosAlumno.primer_apellido 
+  conductorDocumento = this.datosAlumno.primer_nombre + '_' + this.datosAlumno.primer_apellido
+  //IMPRESIÓN NOMBRE CONDUCTOR
+  conductor = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
 
   //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
