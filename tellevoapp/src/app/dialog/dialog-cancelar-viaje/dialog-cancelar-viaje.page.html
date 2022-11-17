@@ -7,7 +7,8 @@
     <div mat-dialog-actions>
       <ion-row>
         <ion-col>
-          <button mat-raised-button mat-dialog-close size="4" class="botton">
+          <!-- ASIGNAMOS EL VALOR DE TRUE AL BOTÓN AL MOMENTO QUE CIERRA EL DIÁLOGO CON MAT-DIALOG CLOSE -->
+          <button mat-raised-button [mat-dialog-close]="true" size="4" value="true" class="botton" >
             <mat-icon>check</mat-icon> 
           </button><br>
         </ion-col>

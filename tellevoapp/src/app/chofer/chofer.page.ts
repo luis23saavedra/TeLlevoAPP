@@ -67,12 +67,14 @@ export class ChoferPage implements OnInit {
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
 
   //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+  //MÉTODO QUE DESACTIVA LOS INPUTS.
   desactivarInputs(){
     document.getElementById('patente').setAttribute('disabled', '')
     document.getElementById('capacidad').setAttribute('disabled', '')
     document.getElementById('tarifa').setAttribute('disabled', '')
     document.getElementById('iniciar').setAttribute('disabled', '')
   }
+  //MÉTODO QUE REMUEVE LA DESACTIVACIÓN DE LOS INPUTS.
   activatInputs(){
     document.getElementById('patente').removeAttribute('disabled')
     document.getElementById('capacidad').removeAttribute('disabled')
@@ -83,8 +85,9 @@ export class ChoferPage implements OnInit {
     //ASIGNACIÓN NOMBRE CONDUCTOR.
     this.datos.nombre = this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
     this.database.insertarConductor("conductor",this.conductorDocumento,this.datos);
+    //UNA VEZ QUE INGRESA EL VIAJE SE DESACTIVAN LOS CAMPOS.
     this.desactivarInputs();
-    
+    //MOVER AL PAGE PASAJERO.
     this.database.consultarConductor("conductor").subscribe(resp =>{
       console.log(resp)
     })
@@ -92,12 +95,21 @@ export class ChoferPage implements OnInit {
   }
   //MÉTODO QUE CAMBIA LA DISPONIBILIDAD DEL CONDUCTOR.
   cancelarViaje(enterAnimationDuration: string, exitAnimationDuration: string): void{
-    //AL MOMENTO DE CANCELAR EL VIAJE DISPONIBLE TOMA EL VALOR DE FALSE.
-    this.dialog.open(DialogCancelarViajePage, {
+    //AL MOMENTO DE CANCELAR EL VIAJE DISPONIBLE TOMA EL VALOR DE TRUE POR LA ASIGNACIÓN EN EL BOTON DEL DIALOG.
+    const dialogo = this.dialog.open(DialogCancelarViajePage, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
+    //SE TOMA EL VALOR RETORNADO POR EL BOTÓN DEL DIALOG UNA VEZ QUE SE CIERRA EL CUADRO DE DIALOGO.
+    dialogo.afterClosed().toPromise().then( resp => {
+      //SI LA RESPUESTA ES TRUE SE ACTIVAN LOS INPUTS.
+      if(resp){
+        this.activatInputs() 
+      }  
+    })
+    
+    
     
     this.datos.disponible = false;
 
@@ -106,7 +118,7 @@ export class ChoferPage implements OnInit {
     })
     //SE RESTABLECE EL VALOR PREDETERMINADO
     this.datos.disponible = true;
-    this.activatInputs()
+    
 
   }
   //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********

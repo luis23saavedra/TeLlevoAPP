@@ -11,7 +11,6 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class DialogCancelarViajePage implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<DialogCancelarViajePage>) { }
-
  
   ngOnInit() {
   }

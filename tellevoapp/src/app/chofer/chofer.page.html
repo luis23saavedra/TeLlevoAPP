@@ -62,7 +62,7 @@
           </ion-col>
           <ion-col size="8">
               <mat-radio-group name="capacidad" id="capacidad" [(ngModel)]="datos.capacidad" #capacidad="ngModel" required>
-                <mat-radio-button class="margin-radio" value="1" id="capacidad" >1</mat-radio-button>
+                <mat-radio-button class="margin-radio" value="1" >1</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="2" >2</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="3" >3</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="4">4</mat-radio-button>
@@ -99,18 +99,33 @@
 
     <mat-divider></mat-divider>
 
+    <div class=" letra ">
+      <ion-row >
+          <ion-col size="4" class="body">
+            Pasajeros:
+          </ion-col>
+           
+      </ion-row>
+    </div>
+
+    <mat-divider></mat-divider>
+
     <div>
       <ion-row>
-        <ion-col size="4"> 
-          <button mat-flat-button [disabled]="formulario.invalid" type="submit" id="iniciar" class="botton" shape="round" (click)="datosConductor()">
-          <mat-icon>time_to_leave</mat-icon>
-          Iniciar</button>
-        </ion-col>
-        <ion-col size="2"> 
-          <button mat-flat-button  type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1500ms')">
-          <mat-icon>close</mat-icon>
-          Cancelar</button>
-        </ion-col>
+        
+        <ion-col size="6"> 
+          <button mat-raised-button [disabled]="formulario.invalid" type="submit" id="iniciar" class="botton" shape="round" (click)="datosConductor()">
+            <mat-icon>time_to_leave</mat-icon>
+            <span>Iniciar Viaje</span>
+          </button>
+        </ion-col>  
+        <ion-col size="6"> 
+            <button mat-raised-button [disabled]="formulario.invalid" type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1000ms')">
+              <mat-icon>close</mat-icon>
+              <span>Cancelar</span>
+            </button>
+        </ion-col> 
+        
       </ion-row> 
     </div>
 
