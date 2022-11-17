@@ -4,12 +4,8 @@ import { MapsService } from '../services/maps.service';
 
 import { DbService } from './../services/db.service';
 
-//CREACIÓN DE INTERFAZ. 
-// interface Seleccion {
-//   value: string;
-//   viewValue: string;
-// }
-
+import { DialogCancelarViajePage } from '../dialog/dialog-cancelar-viaje/dialog-cancelar-viaje.page';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -49,7 +45,7 @@ export class ChoferPage implements OnInit {
   //**********BANDERA LOGIN LOCALSTORAGE.**********
   
 
-  constructor(private router: Router, private activeroute: ActivatedRoute, private map: MapsService, private database: DbService) { 
+  constructor(private router: Router, private activeroute: ActivatedRoute, private map: MapsService, private database: DbService, public dialog: MatDialog) { 
 
     // LLAMADO A LA RUTA ACTIVA
     this.activeroute.queryParams.subscribe(params => { 
@@ -71,45 +67,47 @@ export class ChoferPage implements OnInit {
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
 
   //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
+  desactivarInputs(){
+    document.getElementById('patente').setAttribute('disabled', '')
+    document.getElementById('capacidad').setAttribute('disabled', '')
+    document.getElementById('tarifa').setAttribute('disabled', '')
+    document.getElementById('iniciar').setAttribute('disabled', '')
+  }
+  activatInputs(){
+    document.getElementById('patente').removeAttribute('disabled')
+    document.getElementById('capacidad').removeAttribute('disabled')
+    document.getElementById('tarifa').removeAttribute('disabled')
+    document.getElementById('iniciar').removeAttribute('disabled')
+  }
   datosConductor(){
     //ASIGNACIÓN NOMBRE CONDUCTOR.
     this.datos.nombre = this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
     this.database.insertarConductor("conductor",this.conductorDocumento,this.datos);
+    this.desactivarInputs();
+    
     this.database.consultarConductor("conductor").subscribe(resp =>{
       console.log(resp)
     })
-    //PASADO EL NOMBRE DEL CONDUCTOR AL ARREGLO.
-    //LOS DATOS SE REPITEN EN LA BD, CONSULTAR POR PATENTE.
-    // this.datos.nombre = this.conductor;
-    // this.database.insertar("conductor", this.datos).then(() => {
-    //   console.log('registro conductor guardado!');
-    //   },(error) => {
-    //   console.log("error al insertar los datos",error)
-    //   });
-    // console.log(this.datos)
-     //CONSULTA DE LOS DATOS A LA BD.
-    //  this.database.consultar("conductor").subscribe((conductor => {
-      //SI EXISTEN DATOS EN LA COLECCIÓN CONDUCTOR NO INSERTARÁ LOS DATOS, EN CASO CONTRARIO REALIZA EL INSERT.
-      // if (conductor.length > 0){
-      //   // console.log("existe la tabla alumnos")
-      //   console.log(conductor)
-        
-      // }// }else{
-      //   this.api.registroAlumnos().subscribe((data) => {
-      //     //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
-      //     data.forEach(x => {
-      //       //ASIGNACIÓN DE LA INFORMACIÓN AL OBJETO ALUMNOS.
-      //       this.alumnos = x
-      //       this.database.insertar("alumnos", this.alumnos).then(() => {
-      //         console.log('registro guardado!');
-      //         },(error) => {
-      //         console.log("error al insertar los datos",error)
-      //         });
-      //     });
-          
-      //   })
-      // }
-    // }))
+    
+  }
+  //MÉTODO QUE CAMBIA LA DISPONIBILIDAD DEL CONDUCTOR.
+  cancelarViaje(enterAnimationDuration: string, exitAnimationDuration: string): void{
+    //AL MOMENTO DE CANCELAR EL VIAJE DISPONIBLE TOMA EL VALOR DE FALSE.
+    this.dialog.open(DialogCancelarViajePage, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    
+    this.datos.disponible = false;
+
+    this.database.modificarDisponibilidad("conductor", this.conductorDocumento, this.datos.disponible).then(resp => {
+      console.log("registro modificado")
+    })
+    //SE RESTABLECE EL VALOR PREDETERMINADO
+    this.datos.disponible = true;
+    this.activatInputs()
+
   }
   //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
 

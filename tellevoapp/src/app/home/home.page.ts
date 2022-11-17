@@ -42,11 +42,33 @@ export class HomePage implements OnInit{
   //**********BANDERAS LOGIN***********/
   constructor(public dialog: MatDialog, private api: ApiService, private database: DbService, private router: Router) {}
 
-  // envioDatos(datos: any){
-
-  //   return datos
-
+  //**********INSERCIÓN DE ALUMNOS A LA BD NO BORRAR********** */
+  // insertarAlumnos(){
+  //   //CONSULTA DE LOS DATOS A LA BD.
+  //   this.database.consultar("alumnos").subscribe((alumnos => {
+  //     //SI EXISTEN DATOS EN LA COLECCIÓN CONDUCTOR NO INSERTARÁ LOS DATOS, EN CASO CONTRARIO REALIZA EL INSERT.
+  //     if (alumnos.length > 0){
+  //       // console.log("existe la tabla alumnos")
+  //       return ""
+        
+  //     }else{
+  //       this.api.registroAlumnos().subscribe((data) => {
+  //         //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
+  //         data.forEach(x => {
+  //           //ASIGNACIÓN DE LA INFORMACIÓN AL OBJETO ALUMNOS.
+  //           this.alumnos = x
+  //           this.database.insertar("alumnos", this.alumnos).then(() => {
+  //             console.log('registro guardado!');
+  //             },(error) => {
+  //             console.log("error al insertar los datos",error)
+  //             });
+  //         });
+          
+  //       })
+  //     }
+  //   }))
   // }
+  //**********INSERCIÓN DE ALUMNOS A LA BD NO BORRAR********** */
   //**********REGISTRO Y VALIDACIÓN DE ALUMNO**********/  
   registroValidacion(enterAnimationDuration: string, exitAnimationDuration: string): void {
     //LLAMADO AL SERVICIO API, CONTIENE LOS ALUMNOS ALMACENADOS EN LA BD, LA VARIABLE DATA ALMACENA ESTOS DATOS.
@@ -142,31 +164,7 @@ export class HomePage implements OnInit{
   //**********AUTENTICACIÓN FIREBASE GOOGLE */
   ngOnInit(){
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
-    //CONSULTA DE LOS DATOS A LA BD.
-    this.database.consultar("alumnos").subscribe((alumnos => {
-      //SI EXISTEN DATOS EN LA COLECCIÓN CONDUCTOR NO INSERTARÁ LOS DATOS, EN CASO CONTRARIO REALIZA EL INSERT.
-      if (alumnos.length > 0){
-        // console.log("existe la tabla alumnos")
-        return ""
-        
-      }else{
-        this.api.registroAlumnos().subscribe((data) => {
-          //RECORRIDO DE LA API CON FOR EACH, DATA CONTIENE LOS DATOS ALMACENADOS EN LA API
-          data.forEach(x => {
-            //ASIGNACIÓN DE LA INFORMACIÓN AL OBJETO ALUMNOS.
-            this.alumnos = x
-            this.database.insertar("alumnos", this.alumnos).then(() => {
-              console.log('registro guardado!');
-              },(error) => {
-              console.log("error al insertar los datos",error)
-              });
-          });
-          
-        })
-      }
-    }))
-
-    
+    //this.insertarAlumnos();
     //**********ALMACENAMIENTO DE LOS DATOS EN LA BD.**********
   }
 

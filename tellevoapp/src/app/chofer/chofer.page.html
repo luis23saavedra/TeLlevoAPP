@@ -28,10 +28,11 @@
       </ion-col>
     </ion-row>
   </div> 
-  <!-- ETIQUETA QUE MUESTRA LA UBICACIÓN. -->
+  <!-- INSERCIÓN DE MAPA CON LA UBICACIÓN. -->
   <div id="map"></div>
+    <!-- INSERCIÓN DE MAPA CON LA UBICACIÓN. -->
 
-  <form action="" #formulario="ngForm" >
+  <form action="" #formulario="ngForm" id="formulario">
     
     <div class=" letra ">
       <ion-row >
@@ -40,7 +41,7 @@
           </ion-col>
           <ion-col size="8">
             <mat-form-field appearance="fill" class="letra " >
-              <input matInput placeholder="ingresa tu patente" name="patente" type="text" #patente="ngModel" minlength=8 maxlength=8 class="letra" [(ngModel)]="datos.patente" required>
+              <input matInput placeholder="ingresa tu patente" name="patente" id="patente" type="text" #patente="ngModel" minlength=6 maxlength=6 class="letra" [(ngModel)]="datos.patente" required >
               <!-- VALIDACIONES -->
               <mat-error *ngIf="patente.errors?.['required']">
                 Debes ingresar tu patente.
@@ -60,8 +61,8 @@
             Capacidad:
           </ion-col>
           <ion-col size="8">
-              <mat-radio-group name="capacidad" [(ngModel)]="datos.capacidad" #capacidad="ngModel" required>
-                <mat-radio-button class="margin-radio" value="1" >1</mat-radio-button>
+              <mat-radio-group name="capacidad" id="capacidad" [(ngModel)]="datos.capacidad" #capacidad="ngModel" required>
+                <mat-radio-button class="margin-radio" value="1" id="capacidad" >1</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="2" >2</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="3" >3</mat-radio-button>
                 <mat-radio-button class="margin-radio" value="4">4</mat-radio-button>
@@ -82,7 +83,7 @@
           </ion-col>
           <ion-col size="8">
             <mat-form-field appearance="fill" class="letra " >
-              <input matInput placeholder="ingresa tu tarifa" name="tarifa" type="text" #tarifa="ngModel" maxlength="4" class="letra" [(ngModel)]="datos.tarifa" pattern="^[0-9]+$"  required>
+              <input matInput placeholder="ingresa tu tarifa" name="tarifa" id="tarifa" type="text" #tarifa="ngModel" maxlength="4" class="letra" [(ngModel)]="datos.tarifa" pattern="^[0-9]+$"  required>
               <!-- VALIDACIONES -->
               <mat-error *ngIf="tarifa.errors?.['required']">
                 Debes ingresar tu tarifa.
@@ -90,9 +91,6 @@
               <mat-error *ngIf="tarifa.errors?.['pattern']">
                 Monto inválido.
               </mat-error>
-              <!-- <mat-error *ngIf="tarifa.errors?.['minlength']">
-                Patente inválida.
-              </mat-error> -->
               <!-- VALIDACIONES -->
              </mat-form-field>
           </ion-col>  
@@ -104,12 +102,12 @@
     <div>
       <ion-row>
         <ion-col size="4"> 
-          <button mat-flat-button [disabled]="formulario.invalid" type="submit" class="botton" shape="round" (click)="datosConductor()">
+          <button mat-flat-button [disabled]="formulario.invalid" type="submit" id="iniciar" class="botton" shape="round" (click)="datosConductor()">
           <mat-icon>time_to_leave</mat-icon>
           Iniciar</button>
         </ion-col>
         <ion-col size="2"> 
-          <button mat-flat-button  type="submit" class="botton1" shape="round" >
+          <button mat-flat-button  type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1500ms')">
           <mat-icon>close</mat-icon>
           Cancelar</button>
         </ion-col>

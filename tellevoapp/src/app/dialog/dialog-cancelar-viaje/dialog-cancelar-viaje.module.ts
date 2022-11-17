@@ -4,26 +4,27 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DialogRegPageRoutingModule } from './dialog-reg-routing.module';
+import { DialogCancelarViajePageRoutingModule } from './dialog-cancelar-viaje-routing.module';
 
-import { DialogRegPage } from './dialog-reg.page';
+import { DialogCancelarViajePage } from './dialog-cancelar-viaje.page';
 
-import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DialogRegPageRoutingModule,
-    MatDialogModule,
+    DialogCancelarViajePageRoutingModule,
     MatDividerModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
-  declarations: [DialogRegPage]
+  declarations: [DialogCancelarViajePage]
 })
-export class DialogRegPageModule {}
+export class DialogCancelarViajePageModule {}

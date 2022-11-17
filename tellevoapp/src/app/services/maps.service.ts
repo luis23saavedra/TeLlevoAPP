@@ -15,6 +15,11 @@ export class MapsService {
   //VARIABLE QUE CONTRIBUYE A LA CREACIÓN DE MAPS
   map = null;
   
+  puntoInicio = {
+    lat: -33.59841,
+    lng: -70.57911
+  }
+  
   constructor(private geo: Geolocation, private loadingCtrl: LoadingController) { }
 
   //**********GOOGLE MAPS********** */
@@ -70,7 +75,7 @@ export class MapsService {
     const mapEle: HTMLElement = document.getElementById('map');
     // CREACIÓN DE MAPA.
     this.map = new google.maps.Map(mapEle, {
-      center: coordenadas,
+      center: this.puntoInicio,
       zoom: 12
     });
     //

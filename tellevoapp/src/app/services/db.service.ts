@@ -36,6 +36,13 @@ export class DbService {
     return consulta.valueChanges()
     
   }
+  //ACTUALIZACIÓN DE LA DISPONIBILIDAD DEL CONDUCTOR.
+  modificarDisponibilidad(coleccion, documento, disponibilidad){
+    const consulta = this.database.collection(coleccion).doc(documento).update({ 
+      disponible: disponibilidad
+    })
+    return consulta
+  }
   //MÉTODO QUE REGISTRA AL USUARIO CON SU EMAIL Y CONTRASEÑA.
   public registrar(email, password){
     return createUserWithEmailAndPassword(this.auth, email, password);

@@ -9,6 +9,7 @@ import { DialogErrorContraseniaPageRoutingModule } from './dialog-error-contrase
 import { DialogErrorContraseniaPage } from './dialog-error-contrasenia.page';
 
 import {MatDividerModule} from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     IonicModule,
     DialogErrorContraseniaPageRoutingModule,
+    MatDialogModule,
     MatDividerModule
   ],
   declarations: [DialogErrorContraseniaPage]

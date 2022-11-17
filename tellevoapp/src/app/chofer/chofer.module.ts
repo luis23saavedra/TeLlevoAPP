@@ -19,6 +19,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +36,10 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     MatRadioModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+   
+    
   ],
   declarations: [ChoferPage]
 })

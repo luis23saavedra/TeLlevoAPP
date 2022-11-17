@@ -110,6 +110,10 @@ const routes: Routes = [
     path: 'dialog-error-contrasenia',
     loadChildren: () => import('./dialog/dialog-error-contrasenia/dialog-error-contrasenia.module').then( m => m.DialogErrorContraseniaPageModule)
   },
+  {
+    path: 'dialog-cancelar-viaje',
+    loadChildren: () => import('./dialog/dialog-cancelar-viaje/dialog-cancelar-viaje.module').then( m => m.DialogCancelarViajePageModule)
+  },
   
 
   

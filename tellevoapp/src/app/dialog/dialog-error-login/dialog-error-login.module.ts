@@ -9,6 +9,8 @@ import { DialogErrorLoginPageRoutingModule } from './dialog-error-login-routing.
 import { DialogErrorLoginPage } from './dialog-error-login.page';
 
 import {MatDividerModule} from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     IonicModule,
     DialogErrorLoginPageRoutingModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
   ],
   declarations: [DialogErrorLoginPage]
 })

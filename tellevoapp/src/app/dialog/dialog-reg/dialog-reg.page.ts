@@ -10,23 +10,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class DialogRegPage implements OnInit {
 
-  //**********CAPTURA DE DATOS.**********
-  datos = {
-
-    usuario: "",
-      
-  }
-
-  usuario = {
-    rut: "",
-    nombre: "",
-    apellido: "",
-    usuario: "",
-    email: "",
-    contrasenia: ""
-  }
-  
-  //**********CAPTURA DE DATOS.**********
+ 
   constructor(@Inject(MAT_DIALOG_DATA)  public dialogRef: MatDialogRef<DialogRegPage>) { }
 
   
