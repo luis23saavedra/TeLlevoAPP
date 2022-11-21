@@ -78,6 +78,33 @@ ion-content {
       }
     }
 }
+table {
+    width: 100%;
+}
+.conductor{
+    font-size: small;
+}
+.capacidad{
+    text-align: center;
+    font-size: small;
+}
+.check{
+    text-align: right;
+}
+.botton{
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 140px;
+    color: rgb(0, 22, 75);
+    background-color:  rgb(255, 171, 0);
+  }
+  .botton1{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 140px;
+    color: white;
+    background-color:  red;
+  }
 .caja3{
     
     position: relative;

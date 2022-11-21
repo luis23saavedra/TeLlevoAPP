@@ -87,10 +87,6 @@ export class ChoferPage implements OnInit {
     this.database.insertarConductor("conductor",this.conductorDocumento,this.datos);
     //UNA VEZ QUE INGRESA EL VIAJE SE DESACTIVAN LOS CAMPOS.
     this.desactivarInputs();
-    //MOVER AL PAGE PASAJERO.
-    this.database.consultarConductor("conductor").subscribe(resp =>{
-      console.log(resp)
-    })
     
   }
   //MÉTODO QUE CAMBIA LA DISPONIBILIDAD DEL CONDUCTOR.

@@ -104,7 +104,6 @@
           <ion-col size="4" class="body">
             Pasajeros:
           </ion-col>
-           
       </ion-row>
     </div>
 
@@ -112,7 +111,6 @@
 
     <div>
       <ion-row>
-        
         <ion-col size="6"> 
           <button mat-raised-button [disabled]="formulario.invalid" type="submit" id="iniciar" class="botton" shape="round" (click)="datosConductor()">
             <mat-icon>time_to_leave</mat-icon>
@@ -120,12 +118,11 @@
           </button>
         </ion-col>  
         <ion-col size="6"> 
-            <button mat-raised-button [disabled]="formulario.invalid" type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1000ms')">
-              <mat-icon>close</mat-icon>
-              <span>Cancelar</span>
-            </button>
+          <button mat-raised-button [disabled]="formulario.invalid" type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1000ms')">
+            <mat-icon>close</mat-icon>
+            <span>Cancelar</span>
+          </button>
         </ion-col> 
-        
       </ion-row> 
     </div>
 

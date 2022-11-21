@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
+import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
+
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { environment } from 'src/environments/environment';
@@ -32,7 +34,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
     AngularFirestoreModule,
     
   ],
-  providers: [Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Geolocation, NativeGeocoder,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

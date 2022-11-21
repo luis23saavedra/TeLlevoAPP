@@ -17,7 +17,7 @@
             <mat-icon>reply</mat-icon>
             <span>Salir</span>
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item (click)="datosBdConductor()">
             <mat-icon>notifications_off</mat-icon>
             <span>Disable alerts</span>
           </button>
@@ -51,61 +51,76 @@
           </ion-col>  
       </ion-row>
     </div>
-    <!-- <div class="margin-check letra caja3">
-      <ion-row >
-          <ion-col size="12">
-            Viajes Disponibles
-          </ion-col>
-          <ion-col size="12">
-              <mat-radio-group name="labelPosition" [(ngModel)]="labelPosition">
-                <mat-radio-button class="example-margin"  value="after" (clic)="geolocalizacion()">Si</mat-radio-button>
-                <mat-radio-button class="example-margin" value="before">No</mat-radio-button>
-              </mat-radio-group>
-          </ion-col>  
-      </ion-row>
-    </div> -->
+
+    <div class="">
+      <table mat-table [dataSource]="dataSource" required>
     
-    <!-- <div class="margin-check caja3">
-      <ion-row>
-        <ion-col size="12">
-          Tarifa
-        </ion-col>
-        <ion-col size="10">
-          <mat-accordion >
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title size="5">
-                  Valor Tarifa
-                </mat-panel-title> -->
-                <!-- <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>   -->
-              <!-- </mat-expansion-panel-header>
-              <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>
-            </mat-expansion-panel>
-          </mat-accordion>  
-        </ion-col>
-      </ion-row>
-    </div>  -->
+        <!-- Position Column -->
+        <ng-container matColumnDef="conductor">
+          <th mat-header-cell *matHeaderCellDef > Conductor </th>
+          <td mat-cell *matCellDef="let element" class="conductor"> {{element.nombre}} </td>
+        </ng-container>
 
-    <!-- <div class="margin-contenido letra caja3">
-      <ion-row>
-        <ion-col size="5">
-          Total Viaje:
-        </ion-col>
-        <ion-col>
-
-        </ion-col>
-      </ion-row>
-    </div> -->
+        <ng-container matColumnDef="Patente">
+          <th mat-header-cell *matHeaderCellDef > Patente </th>
+          <td mat-cell *matCellDef="let element" class="conductor"> {{element.patente}} </td>
+        </ng-container>
     
-    <!-- <mat-divider [inset]="true" class="caja3"></mat-divider> -->
+        <!-- Name Column -->
+        <ng-container matColumnDef="Capacidad">
+          <th mat-header-cell *matHeaderCellDef> Capacidad </th>
+          <td mat-cell *matCellDef="let element" class="capacidad"> {{element.capacidad}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Tarifa">
+          <th mat-header-cell *matHeaderCellDef> Tarifa </th>
+          <td mat-cell *matCellDef="let element" class="capacidad"> {{element.tarifa}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="check">
+          <th mat-header-cell *matHeaderCellDef class="check">
+            <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row" class="check">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
+          </td>
+          
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator pageSize="2"> </mat-paginator>
+    </div>
 
-    <!-- <ion-row>
-      <div class="example-button-row">
-        <button mat-flat-button [disabled]="formulario.invalid" class="margenb"  (click)="geolocalizacion()">Solicitar Viaje</button>
-      </div> 
-    </ion-row> -->
-
+    <div>
+      <ion-row>
+        <ion-col size="6"> 
+          <button mat-raised-button [disabled]="formulario.invalid" type="submit" id="iniciar" class="botton" shape="round" (click)="datosConductor()">
+            <mat-icon>person_add</mat-icon>
+            <span>Subete!</span>
+          </button>
+        </ion-col>  
+        <ion-col size="6"> 
+          <button mat-raised-button [disabled]="formulario.invalid" type="submit" class="botton1" shape="round" (click)="cancelarViaje('3000ms', '1000ms')">
+            <mat-icon>close</mat-icon>
+            <span>Cancelar</span>
+          </button>
+        </ion-col> 
+      </ion-row> 
+    </div>
+    
   </form>
   
 </ion-content>

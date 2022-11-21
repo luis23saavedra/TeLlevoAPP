@@ -1,45 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { MapsService } from '../services/maps.service';
 
-// import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {SelectionModel} from '@angular/cdk/collections';
 
 import { DbService } from './../services/db.service';
 
 // import { ApiService } from '../api.service';
 
-//VARIABLE GOOGLE PARA INICIALIZAR EL MAPA.
-declare var google;
 //CREACIÓN DE INTERFAZ.
+ interface PeriodicElement {
+  Capacidad: number;
+  Conductor: string;
+  Tarifa: number;
+}
 
-interface Seleccion {
-  value: string;
-  viewValue: string;
-}
-//CREAR INTERFACE  PARA ESTABLECER LA LATITUD Y LONGITUD, CREAR EN LA CARPETA DE SERVICIO.
-interface Marker {
-  position: {
-    lat: number,
-    lng: number,
-  };
-  title: string;
-}
 @Component({
   selector: 'app-pasajero',
   templateUrl: './pasajero.page.html',
   styleUrls: ['./pasajero.page.scss'],
 })
 export class PasajeroPage implements OnInit {
-
-  //CAPTURACIÓN DE DATOS DEL SELECT.
-  selectedValue: string;
-  //ASIGNACIÓN DE VALORES Y DE OPCIONES A LA INTERFAZ SELECCIÓN PARA LUEGO SER IMPRESOS COMO OPCIONES EN SELECT CON LA FUNCIÓN *ngFor.
-  opciones: Seleccion[] = [
-    {value: 'norte', viewValue: 'Norte'},
-    {value: 'oriente', viewValue: 'Oriente'},
-    {value: 'poniente', viewValue: 'Poniente'},
-    {value: 'sur', viewValue: 'Sur'},
-  ];
+ 
   //**********CAPTURA DE DATOS.**********
   datos = {
 
@@ -54,8 +38,7 @@ export class PasajeroPage implements OnInit {
     logueado: "true"
   }
   //**********BANDERA LOGIN LOCALSTORAGE.********** 
-  // //VARIABLE QUE CONTRIBUYE A LA CREACIÓN DE MAPS
-  // map = null
+  
   constructor(private router: Router, private activeroute: ActivatedRoute, private database: DbService, private map: MapsService ) { 
 
     // LLAMADO A LA RUTA ACTIVA
@@ -74,9 +57,51 @@ export class PasajeroPage implements OnInit {
   
   pasajero = ' ' + this.datosAlumno.primer_nombre + ' ' + this.datosAlumno.primer_apellido 
   /**********OBTENCIÓN DE LOS DATOS DEL ALUMNO EN LOCALSTORAGE.**********/
+  //**********TABLA DATOS CONDUCTOR********* */
+  //ASIGNACIÓN DE COLUMNAS
+  displayedColumns: string[] = ['conductor','Patente', 'Capacidad', 'Tarifa', 'check'];
+  //SE ESTABLECE VACÍO, LA INFORMACIÓN SE CARGA EN EL MÉTODO datosBdConductor().
+  dataSource = new MatTableDataSource([]);
+  //SELECCIÓN DEL CHECKBOX.
+  selection = new SelectionModel(false, []);
+  //CREACIÓN DE PAGINATOR.
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
+  }
+  checkboxLabel(row?: PeriodicElement): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Conductor + 1}`;
+  }
+  //**********TABLA DATOS CONDUCTOR********* */
+  //**********OBTENCIÓN DE DATOS EN LA BD PARA SER PASADOS AL DATASOURCE********* */
+  datosBdConductor(){
+    //LLAMADO AL MÉTODO QUE OBTIENE LOS DATOS DEL CONDUCTOR DE LA BD PARA LUEGO ASIGNARLOS AL DATASOURCE. 
+    this.database.consultarConductor("conductor").subscribe(resp => {
+      this.dataSource.data = resp;
+    })
+
+  }
+   //**********OBTENCIÓN DE DATOS EN LA BD PARA SER PASADOS AL DATASOURCE********* */
   //**********FUNCIÓN LOGOUT.**********.
   salirPagina(){
-
     //OBTENCIÓN DE LA BANDERA CREADA EN LOGIN DE LOCALSTORAGE, ESTOS SE PARSEAN DE STRING A JSON.
     var datosLogin = JSON.parse(localStorage.getItem('login'));
     //ASIGNACIÓN DE VALOR FALSE A LA BANDERA DE LOCALSTORAGE
@@ -87,43 +112,7 @@ export class PasajeroPage implements OnInit {
     this.router.navigate(['/home']);
   }
   //**********FUNCIÓN LOGOUT.**********.
-  //**********GOOGLE MAPS********** */
-  // loadMap() {
-    
-  //   // CREACIÓN DE MAPA EN LA ETIQUETA HTML.
-  //   const mapEle: HTMLElement = document.getElementById('map');
-  //   // CREACIÓN DE LA LATITUD Y LONGITUD.
-  //   const myLatLng = {lat: -33.59826, lng: -70.57926};
-  //   // CREACIÓN DE MAPA.
-  //   this.map = new google.maps.Map(mapEle, {
-  //     center: myLatLng,
-  //     zoom: 12
-  //   });
-  //   //
-  //   google.maps.event.addListenerOnce(this.map, 'idle', () => {
-  //     // this.renderMarkers();
-  //     mapEle.classList.add('show-map');
-  //     //SE ESTABLECE LA POSICIÓN INICIAL EN EL MAPA.
-  //     const marker = {
-  //       position: {
-  //         lat: -33.59826,
-  //         lng: -70.57926
-  //       },
-  //       title: 'Punto Partida'
-  //     }
-  //     //LLAMADO AL MÉTODO PARA ESTABLECER EL PUNTO DE PARTIDA
-  //     this.addMarker(marker);
-  //   });
-  // }
-  // //SE AGREGA LA POSICIÓN INICIAL.
-  // addMarker(marker: Marker) {
-  //   return new google.maps.Marker({
-  //     position: marker.position,
-  //     map: this.map,
-  //     title: marker.title
-  //   });
-  // }
-  //**********GOOGLE MAPS********** */  
+  
   ngOnInit() {
     //**********GUARDADO DE BANDERA EN LOCALSTORAGE.**********
     localStorage.setItem('login', JSON.stringify(this.bandera));
@@ -131,46 +120,9 @@ export class PasajeroPage implements OnInit {
     //********** CARGADO DE MAPA AL INICIO DEL PAGE********** */
     this.map.loadMap();
     //********** CARGADO DE MAPA AL INICIO DEL PAGE********** */
+    //**********CARGADO DE CONDUCTORES EN LA TABLA**********
+    this.datosBdConductor();
+    //**********CARGADO DE CONDUCTORES EN LA TABLA**********
   }
   
-  //POSISIONAMIENTO DEL CHECK BOX
-  labelPosition: 'before' | 'after' = 'after';
-  //SE ESCONDE LA EXPANSIÓN DEL PANEL POR DEFECTO.
-  panelOpenState = false;
-  //GEOLOZALIZACIÓN PASAJERO.
-  
-  // @ViewChild('map') mapView: ElementRef;
-  // CUANDO ELCICLO DE VIDA DEL PAGE ENTRE A SU FINALIZACIÓN
-  // ionViewDidEnter() {
-  //   this.createMap();
-  // }
-  //CREACIÓN MAPA.
-  // createMap() {
-  //   const boundingRect = this.mapView.nativeElement.getBoundingClientRect() as DOMRect;
-
-  //   CapacitorGoogleMaps.create({
-  //     width: Math.round(boundingRect.width),
-  //     height: Math.round(boundingRect.height),
-  //     x: Math.round(boundingRect.x),
-  //     y: Math.round(boundingRect.y),
-  //     zoom: 5
-  //   });
-
-//   CapacitorGoogleMaps.addListener('onMapReady', async () => {
-//     CapacitorGoogleMaps.setMapType({
-//       type: "normal" // hybrid, satellite, terrain
-//     });
-
-//     this.showCurrentPosition();
-//   });
-// }
-
-// async showCurrentPosition() {
-//   // todo
-// }
-//CUANDO EL CICLO DE VIDA DEL PAGE FINALIZA.
-// ionViewDidLeave() {
-//   CapacitorGoogleMaps.close();
-// }
-
 }

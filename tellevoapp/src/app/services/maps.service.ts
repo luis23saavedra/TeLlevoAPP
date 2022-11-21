@@ -22,6 +22,7 @@ export class MapsService {
   
   constructor(private geo: Geolocation, private loadingCtrl: LoadingController) { }
 
+
   //**********GOOGLE MAPS********** */
   //OBTENCIÓN DE LA POSICIÓN DEL USUARIO.
   async geolocalizacion(){
